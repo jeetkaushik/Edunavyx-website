@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState, type FormEvent } from "react";
 import {
   ArrowRight,
@@ -31,6 +31,7 @@ import destinationImage from "@/assets/destinations.jpg";
 import serviceImage from "@/assets/services-advisor.jpg";
 import successImage from "@/assets/student-success.jpg";
 import ctaImage from "@/assets/cta-student.jpg";
+import { services } from "@/lib/services";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -70,15 +71,6 @@ const universities = [
   ["UoM", "University of Manchester", "UK", "Manchester", "Engineering · Business", "£25k–38k"],
   ["UoE", "University of Edinburgh", "UK", "Edinburgh", "Data Science · Arts", "£26k–40k"],
   ["TCD", "Trinity College Dublin", "Ireland", "Dublin", "Computing · Business", "€20k–35k"],
-];
-
-const services = [
-  ["01", "Study Abroad Consultation", "Personal guidance based on your academic profile and career goals."],
-  ["02", "University & Course Selection", "Find the university and program that match your ambitions."],
-  ["03", "Application Assistance", "Support with applications, SOPs, LORs and documentation."],
-  ["04", "Scholarship & Finance", "Discover scholarships and make your study plan financially sound."],
-  ["05", "Visa & Accommodation", "Guidance through visa documentation and finding your new home."],
-  ["06", "Interview Preparation", "Prepare confidently for university and visa interviews."],
 ];
 
 const faqs = [
@@ -234,7 +226,7 @@ function HomePage() {
       </div></section>
 
       <section id="services" className="section services-section"><div className="container"><SectionHeading eyebrow="END-TO-END SUPPORT" title="Everything You Need. One Journey." />
-        <div className="services-grid">{services.map((service, index) => <article className="service-card reveal" key={service[0]}><img loading="lazy" src={index % 2 === 0 ? serviceImage : aboutImage} alt="EDUNAVYX education guidance service" width={1200} height={900} /><div className="service-shade" /><span className="service-number">{service[0]}</span><Button size="icon" className="round-arrow" aria-label={`Learn about ${service[1]}`}><ArrowRight /></Button><div><h3>{service[1]}</h3><p>{service[2]}</p></div></article>)}</div>
+        <div className="services-grid">{services.map((service, index) => <Link to="/services/$serviceSlug" params={{ serviceSlug: service.slug }} className="service-card reveal" key={service.number} aria-label={`Learn about ${service.title}`}><img loading="lazy" src={index % 2 === 0 ? serviceImage : aboutImage} alt={`${service.title} with EDUNAVYX`} width={1200} height={900} /><div className="service-shade" /><span className="service-number">{service.number}</span><span className="round-arrow"><ArrowRight /></span><div><h3>{service.title}</h3><p>{service.summary}</p></div></Link>)}</div>
       </div></section>
 
       <section className="section journey-section"><div className="container"><SectionHeading eyebrow="HOW IT WORKS" title="Your Journey. Simplified." center /><div className="journey-line">{[["01","Discover","Tell us about your goals."],["02","Shortlist","Find universities and courses that fit."],["03","Apply","Build a strong application."],["04","Secure","Navigate offers, scholarships and visas."],["05","Fly","Start your global education journey."]].map((step) => <div className="journey-step reveal" key={step[0]}><span>{step[0]}</span><div className="journey-dot" /><h3>{step[1]}</h3><p>{step[2]}</p></div>)}</div></div></section>
