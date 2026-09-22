@@ -58,6 +58,9 @@ import { countries } from "@/lib/countries";
 import { services } from "@/lib/services";
 import { studentTestimonials } from "@/lib/testimonials";
 import uniDomeImg from "@/assets/compass-bg-architecture.jpg";
+import uniCambridgeGothic from "@/assets/uni-cambridge-gothic.jpg";
+import uniLondonDecor from "@/assets/uni-london-decor.jpg";
+import uniMelbourneDecor from "@/assets/uni-melbourne-decor.jpg";
 import {
   UniversityLogo,
   topRankedUniversities,
@@ -1847,38 +1850,259 @@ function HomePage() {
         <MovingRibbon />
 
         {/* 11. PARTNERED UNIVERSITIES */}
+        {/* 11. PARTNERED UNIVERSITIES */}
         <section
           className="section universities-section"
           id="universities"
           aria-labelledby="universities-heading"
         >
+          {/* Subtle decorative background wave / glow */}
+          <div className="uni-bg-ambient-glow" aria-hidden="true" />
+          
           <div className="container universities-container">
-            <div className="universities-header reveal">
-              <span className="universities-eyebrow">GLOBAL ACADEMIC EXCELLENCE</span>
-              <h2 id="universities-heading" className="section-main-heading">PARTNERED UNIVERSITIES</h2>
-              <p>
-                Collaborating with world-leading universities across the globe to bring world-class
-                education and global career pathways within your reach.
-              </p>
-            </div>
-
-            <div className="universities-partner-grid reveal">
-              {topRankedUniversities.map((uni) => (
-                <div
-                  key={uni.id}
-                  className="university-partner-card"
-                  title={`${uni.name} · ${uni.country} (${uni.rank ?? ""})`}
-                >
-                  <UniversityLogo id={uni.id} className="uni-partner-logo-svg" />
+            {/* HERO / HEADER AREA: Two-Column Composition */}
+            <div className="universities-hero-grid reveal">
+              {/* Left Column: Heading, Badge, Subcopy, Doodle Annotation */}
+              <div className="universities-hero-left">
+                <div className="uni-header-badge">
+                  <Globe className="w-3.5 h-3.5 text-teal-600 mr-2 shrink-0" />
+                  <span>GLOBAL ACADEMIC EXCELLENCE</span>
                 </div>
-              ))}
+
+                <h2 id="universities-heading" className="universities-main-headline">
+                  Partnered with<br />
+                  <span className="universities-gradient-text">World-Class Universities</span>
+                </h2>
+
+                <p className="universities-subcopy">
+                  Collaborating with world-leading universities across the globe to bring world-class
+                  education and global career pathways within your reach.
+                </p>
+
+                {/* Hand-drawn annotation arrow pointing to university montage */}
+                <div className="uni-doodle-annotation" aria-hidden="true">
+                  <span className="uni-doodle-text">
+                    Top Universities.<br />
+                    Global Opportunities.
+                  </span>
+                  <svg className="uni-doodle-arrow-svg" width="68" height="42" viewBox="0 0 68 42" fill="none">
+                    <path d="M4 6 C 18 30, 42 36, 56 18" stroke="#06b6d4" strokeWidth="2.2" strokeLinecap="round" />
+                    <path d="M48 15 L 57 18 L 55 26" stroke="#06b6d4" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Right Column: Global Education & Campus Architecture Visual Montage */}
+              <div className="universities-hero-right" aria-hidden="true">
+                <div className="uni-montage-wrapper">
+                  {/* Subtle Globe / Earth backdrop */}
+                  <div className="uni-globe-backdrop">
+                    <div className="uni-globe-circle" />
+                    <div className="uni-globe-atmosphere" />
+                  </div>
+
+                  {/* Arched flight trajectory with Airplane */}
+                  <svg className="uni-flight-path-svg" viewBox="0 0 320 200" fill="none">
+                    <path
+                      d="M20 180 C 80 80, 200 40, 290 20"
+                      stroke="#38bdf8"
+                      strokeWidth="2"
+                      strokeDasharray="5 5"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                  <div className="uni-plane-wrapper">
+                    <Plane className="w-5 h-5 text-sky-600 transform -rotate-12" />
+                  </div>
+
+                  {/* Campus Architecture 1: Cambridge Gothic Chapel / Tower Layer */}
+                  <div className="uni-arch-layer-left">
+                    <img
+                      src={uniCambridgeGothic}
+                      alt="Cambridge Gothic architecture"
+                      className="uni-arch-gothic-img"
+                    />
+                  </div>
+
+                  {/* Campus Architecture 2: Radcliffe Camera Oxford Dome Card */}
+                  <div className="uni-arch-card-dome">
+                    <img
+                      src={uniDomeImg}
+                      alt="Oxford Radcliffe Camera dome"
+                      className="uni-arch-dome-img"
+                    />
+                  </div>
+
+                  {/* Floating "Dream Study Build Your Future" Card */}
+                  <div className="uni-floating-badge-card">
+                    <span className="uni-dream-line">Dream</span>
+                    <span className="uni-dream-line">Study</span>
+                    <span className="uni-dream-line">Build Your</span>
+                    <span className="uni-dream-line font-bold text-teal-700">Future</span>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="universities-btn-wrap reveal">
-              <Button variant="outline" size="lg" className="universities-view-btn" asChild>
-                <a href="#destinations">Explore All Destinations</a>
-              </Button>
+            {/* UNIVERSITY PARTNER GRID (5 Columns Desktop) */}
+            <div className="universities-partner-grid reveal">
+              {topRankedUniversities.map((uni) => {
+                const theme = universityThemes[uni.id] || {
+                  accent: "#0ea5e9",
+                  bg: "linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)",
+                  border: "rgba(226, 232, 240, 0.9)",
+                };
+                return (
+                  <div
+                    key={uni.id}
+                    className="university-partner-card group"
+                    style={
+                      {
+                        "--uni-accent": theme.accent,
+                        "--uni-bg": theme.bg,
+                        "--uni-border": theme.border,
+                      } as React.CSSProperties
+                    }
+                    title={`${uni.name} · ${uni.country} (${uni.rank ?? ""})`}
+                  >
+                    <div className="uni-card-inner">
+                      <div className="uni-card-logo-area">
+                        <UniversityLogo id={uni.id} className="uni-partner-logo-svg" />
+                      </div>
+                      <div className="uni-card-footer">
+                        <span className="uni-card-country">
+                          <MapPin
+                            className="uni-card-pin-icon"
+                            style={{ color: theme.accent }}
+                          />
+                          <span className="uni-card-country-name">{uni.country}</span>
+                        </span>
+                        <span className="uni-card-arrow-circle" aria-hidden="true">
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
+
+            {/* CTA BUTTON WITH DIAMOND FLANKING LINES */}
+            <div className="universities-cta-container reveal">
+              <div className="uni-cta-flank-line left" aria-hidden="true">
+                <span className="uni-flank-bar" />
+                <span className="uni-flank-diamond">◆</span>
+                <span className="uni-flank-bar short" />
+              </div>
+
+              <Button size="lg" className="universities-explore-btn group" asChild>
+                <a href="#destinations">
+                  <span>Explore All Destinations</span>
+                  <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                </a>
+              </Button>
+
+              <div className="uni-cta-flank-line right" aria-hidden="true">
+                <span className="uni-flank-bar short" />
+                <span className="uni-flank-diamond">◆</span>
+                <span className="uni-flank-bar" />
+              </div>
+            </div>
+
+            {/* BOTTOM VALUE STRIP (4 Compact Value Pillars) */}
+            <div className="universities-value-strip reveal">
+              <div className="uni-value-item">
+                <div className="uni-value-icon-box">
+                  <Globe className="w-5 h-5 text-teal-600" />
+                </div>
+                <span className="uni-value-label">Top Global Universities</span>
+              </div>
+              <div className="uni-value-separator" />
+
+              <div className="uni-value-item">
+                <div className="uni-value-icon-box">
+                  <GraduationCap className="w-5 h-5 text-teal-600" />
+                </div>
+                <span className="uni-value-label">Multiple Countries</span>
+              </div>
+              <div className="uni-value-separator" />
+
+              <div className="uni-value-item">
+                <div className="uni-value-icon-box">
+                  <ShieldCheck className="w-5 h-5 text-teal-600" />
+                </div>
+                <span className="uni-value-label">Career-Focused Programs</span>
+              </div>
+              <div className="uni-value-separator" />
+
+              <div className="uni-value-item">
+                <div className="uni-value-icon-box">
+                  <Compass className="w-5 h-5 text-teal-600" />
+                </div>
+                <span className="uni-value-label">Your Global Future, Our Priority</span>
+              </div>
+            </div>
+          </div>
+
+          {/* DESTINATION FRAMING CORNERS: London & Melbourne */}
+          <div className="uni-decor-corner uni-decor-london" aria-hidden="true">
+            <img
+              src={uniLondonDecor}
+              alt="London Westminster architecture"
+              className="uni-corner-img"
+              loading="lazy"
+            />
+            <div className="uni-corner-tag london">
+              <span className="uni-tag-handwritten">London</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M4 18 C 10 14, 16 10, 20 4" stroke="#0d9488" strokeWidth="1.8" strokeLinecap="round"/>
+                <path d="M14 4 L 20 4 L 20 10" stroke="#0d9488" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+          </div>
+
+          <div className="uni-decor-corner uni-decor-melbourne" aria-hidden="true">
+            <img
+              src={uniMelbourneDecor}
+              alt="Melbourne skyline"
+              className="uni-corner-img"
+              loading="lazy"
+            />
+            <div className="uni-corner-tag melbourne">
+              <span className="uni-tag-handwritten">Melbourne</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M4 20 C 8 12, 14 8, 20 5" stroke="#0d9488" strokeWidth="1.8" strokeLinecap="round"/>
+                <path d="M14 4 L 20 5 L 18 12" stroke="#0d9488" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+          </div>
+
+          {/* Bottom Teal Wave Silhouette */}
+          <div className="uni-bottom-wave-strip" aria-hidden="true">
+            <svg
+              className="uni-bottom-wave-svg"
+              viewBox="0 0 1440 64"
+              fill="none"
+              preserveAspectRatio="none"
+            >
+              <path
+                d="M0 40 C 240 10, 480 50, 720 30 C 960 10, 1200 45, 1440 25 L 1440 64 L 0 64 Z"
+                fill="url(#uni-wave-gradient)"
+                opacity="0.18"
+              />
+              <path
+                d="M0 50 C 320 25, 640 55, 960 35 C 1200 20, 1360 45, 1440 38 L 1440 64 L 0 64 Z"
+                fill="url(#uni-wave-gradient)"
+                opacity="0.25"
+              />
+              <defs>
+                <linearGradient id="uni-wave-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#0284c7" />
+                  <stop offset="50%" stopColor="#0d9488" />
+                  <stop offset="100%" stopColor="#06b6d4" />
+                </linearGradient>
+              </defs>
+            </svg>
           </div>
         </section>
 
