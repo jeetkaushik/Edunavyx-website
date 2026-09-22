@@ -10,11 +10,19 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CountriesCountrySlugRouteImport } from './routes/countries.$countrySlug'
 import { Route as ServicesServiceSlugRouteImport } from './routes/services.$serviceSlug'
+import { Route as TestPreparationIndexRouteImport } from './routes/test-preparation.index'
+import { Route as TestPreparationTestSlugRouteImport } from './routes/test-preparation.$testSlug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CountriesCountrySlugRoute = CountriesCountrySlugRouteImport.update({
+  id: '/countries/$countrySlug',
+  path: '/countries/$countrySlug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesServiceSlugRoute = ServicesServiceSlugRouteImport.update({
@@ -22,31 +30,69 @@ const ServicesServiceSlugRoute = ServicesServiceSlugRouteImport.update({
   path: '/services/$serviceSlug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TestPreparationIndexRoute = TestPreparationIndexRouteImport.update({
+  id: '/test-preparation/',
+  path: '/test-preparation/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TestPreparationTestSlugRoute = TestPreparationTestSlugRouteImport.update({
+  id: '/test-preparation/$testSlug',
+  path: '/test-preparation/$testSlug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/countries/$countrySlug': typeof CountriesCountrySlugRoute
   '/services/$serviceSlug': typeof ServicesServiceSlugRoute
+  '/test-preparation/$testSlug': typeof TestPreparationTestSlugRoute
+  '/test-preparation/': typeof TestPreparationIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/countries/$countrySlug': typeof CountriesCountrySlugRoute
   '/services/$serviceSlug': typeof ServicesServiceSlugRoute
+  '/test-preparation/$testSlug': typeof TestPreparationTestSlugRoute
+  '/test-preparation': typeof TestPreparationIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/countries/$countrySlug': typeof CountriesCountrySlugRoute
   '/services/$serviceSlug': typeof ServicesServiceSlugRoute
+  '/test-preparation/$testSlug': typeof TestPreparationTestSlugRoute
+  '/test-preparation/': typeof TestPreparationIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/services/$serviceSlug'
+  fullPaths:
+    | '/'
+    | '/countries/$countrySlug'
+    | '/services/$serviceSlug'
+    | '/test-preparation/$testSlug'
+    | '/test-preparation/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/services/$serviceSlug'
-  id: '__root__' | '/' | '/services/$serviceSlug'
+  to:
+    | '/'
+    | '/countries/$countrySlug'
+    | '/services/$serviceSlug'
+    | '/test-preparation/$testSlug'
+    | '/test-preparation'
+  id:
+    | '__root__'
+    | '/'
+    | '/countries/$countrySlug'
+    | '/services/$serviceSlug'
+    | '/test-preparation/$testSlug'
+    | '/test-preparation/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CountriesCountrySlugRoute: typeof CountriesCountrySlugRoute
   ServicesServiceSlugRoute: typeof ServicesServiceSlugRoute
+  TestPreparationTestSlugRoute: typeof TestPreparationTestSlugRoute
+  TestPreparationIndexRoute: typeof TestPreparationIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -58,6 +104,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/countries/$countrySlug': {
+      id: '/countries/$countrySlug'
+      path: '/countries/$countrySlug'
+      fullPath: '/countries/$countrySlug'
+      preLoaderRoute: typeof CountriesCountrySlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services/$serviceSlug': {
       id: '/services/$serviceSlug'
       path: '/services/$serviceSlug'
@@ -65,12 +118,29 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesServiceSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/test-preparation/': {
+      id: '/test-preparation/'
+      path: '/test-preparation'
+      fullPath: '/test-preparation/'
+      preLoaderRoute: typeof TestPreparationIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/test-preparation/$testSlug': {
+      id: '/test-preparation/$testSlug'
+      path: '/test-preparation/$testSlug'
+      fullPath: '/test-preparation/$testSlug'
+      preLoaderRoute: typeof TestPreparationTestSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CountriesCountrySlugRoute: CountriesCountrySlugRoute,
   ServicesServiceSlugRoute: ServicesServiceSlugRoute,
+  TestPreparationTestSlugRoute: TestPreparationTestSlugRoute,
+  TestPreparationIndexRoute: TestPreparationIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
