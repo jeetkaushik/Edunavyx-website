@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { BackButton } from "@/components/back-button";
 import logoImage from "@/assets/edunavyx-logo.png";
 import { getTestPrepItem, testPreparationData, type TestPrepItem } from "@/lib/test-preparation";
 
@@ -80,7 +81,7 @@ function TestPrepDetailPage() {
               </Link>
             </Button>
             <a
-              href="https://wa.me/919876543210?text=Hi%20EDUNAVYX%2C%20I%20would%20like%20to%20know%20more%20about%20Test%20Preparation."
+              href="https://wa.me/918796556462?text=Hi%20EDUNAVYX%2C%20I%20would%20like%20to%20know%20more%20about%20Test%20Preparation."
               target="_blank"
               rel="noopener noreferrer"
               className="whatsapp-nav-btn"
@@ -98,16 +99,15 @@ function TestPrepDetailPage() {
       <main>
         {/* Detail Hero Section */}
         <section className={`test-detail-hero hero-accent-${currentTest.accent}`}>
-          <div className="container test-detail-hero-grid">
-            <div className="test-detail-hero-copy">
-              <Link to="/" hash="test-preparation" className="service-back">
-                <ArrowLeft className="w-4 h-4" /> All Test Preparation
-              </Link>
-              <div className="test-detail-badge-row">
-                <span className={`test-service-badge badge-${currentTest.id}`}>
-                  {currentTest.categoryBadge}
-                </span>
-              </div>
+          <div className="container">
+            <BackButton to="/" hash="test-preparation" label="All Test Preparation" />
+            <div className="test-detail-hero-grid">
+              <div className="test-detail-hero-copy">
+                <div className="test-detail-badge-row">
+                  <span className={`test-service-badge badge-${currentTest.id}`}>
+                    {currentTest.categoryBadge}
+                  </span>
+                </div>
               <h1 className="test-detail-hero-title">{currentTest.title}</h1>
               <blockquote className="test-detail-hero-headline">
                 “{currentTest.headline}”
@@ -188,7 +188,8 @@ function TestPrepDetailPage() {
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
         {/* SECTION: WHO SHOULD TAKE THIS TEST */}
         <section className="section test-audience-section">
@@ -216,7 +217,7 @@ function TestPrepDetailPage() {
         <section className="section test-curriculum-section">
           <div className="container">
             <div className="test-section-header">
-              <span className="eyebrow">EXAM CURRICULUM</span>
+              <span className="eyebrow test-curriculum-eyebrow">EXAM CURRICULUM</span>
               <h2>What Does The Preparation Cover?</h2>
               <p>Complete syllabus breakdown, module by module, with targeted question solving.</p>
             </div>
@@ -230,29 +231,6 @@ function TestPrepDetailPage() {
                   </div>
                   <p>{module.desc}</p>
                 </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* SECTION: PREPARATION APPROACH & METHODOLOGY */}
-        <section className="section test-approach-section">
-          <div className="container">
-            <div className="test-section-header">
-              <span className="eyebrow">OUR METHODOLOGY</span>
-              <h2>A 4-Step Strategic Preparation Roadmap</h2>
-              <p>How we help you bridge the gap between initial assessment and your dream score.</p>
-            </div>
-
-            <div className="test-approach-timeline">
-              {currentTest.preparationApproach.map((step) => (
-                <div key={step.step} className="test-approach-step">
-                  <div className={`test-step-badge badge-${currentTest.id}`}>{step.step}</div>
-                  <div className="test-step-content">
-                    <h3>{step.title}</h3>
-                    <p>{step.desc}</p>
-                  </div>
-                </div>
               ))}
             </div>
           </div>

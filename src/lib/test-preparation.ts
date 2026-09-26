@@ -142,11 +142,11 @@ export const testPreparationData: Record<string, TestPrepItem> = {
   sat: {
     id: "sat",
     title: "SAT",
-    shortTitle: "Digital SAT",
+    shortTitle: "SAT",
     categoryBadge: "Global Standardized Test",
-    headline: "Build the skills that strengthen your university application.",
+    headline: "98 Questions | 2 hr 14 min | Adaptive | Score: 400–1600 | 2 Sections",
     conciseDescription:
-      "Focused training in Digital SAT Math, Reading and Writing with targeted question strategies, time management, and score optimization.",
+      "Recognised by universities across the USA, Canada, UK, Australia, India, Singapore, Hong Kong and several other countries worldwide.",
     cardImage: testCardSat,
     cardImageAlt: "Academic study and SAT test preparation",
     accent: "orange",
@@ -155,22 +155,23 @@ export const testPreparationData: Record<string, TestPrepItem> = {
     accentBorder: "rgba(249, 115, 22, 0.24)",
     ctaLabel: "Explore SAT Guidance",
     highlights: [
-      "Digital SAT Curriculum",
+      "SAT Curriculum",
       "Reading, Writing & Mathematics",
       "Targeted Score Optimization",
     ],
     heroSummary:
-      "The Digital SAT is a cornerstone of global undergraduate admissions, particularly for prestigious institutions across the United States, Canada, Europe, and Asia. Edunavyx provides structured, data-driven preparation tailored to the multistage adaptive testing environment.",
+      "Recognised by universities across the USA, Canada, UK, Australia, India, Singapore, Hong Kong and several other countries worldwide.",
     whoShouldTake: [
       "High school students in Grades 10, 11, and 12 planning for international undergraduate study",
       "Applicants aiming for competitive merit scholarships and top-tier university admissions",
       "Students seeking to strengthen holistic application profiles with competitive standardized test scores",
     ],
     testFormat: {
-      duration: "2 hours 14 minutes",
-      sections: "Reading & Writing (2 modules, 64 min) + Mathematics (2 modules, 70 min)",
-      scoring: "400 to 1600 (200-800 per section)",
-      acceptedBy: "Over 4,000 universities in the US, Canada, UK, Europe, Singapore, and worldwide",
+      duration: "2 hr 14 min",
+      sections: "2 Sections (98 Questions, Adaptive)",
+      scoring: "400–1600",
+      acceptedBy:
+        "Universities across the USA, Canada, UK, Australia, India, Singapore, Hong Kong and several other countries worldwide.",
     },
     keyModules: [
       {
@@ -215,13 +216,13 @@ export const testPreparationData: Record<string, TestPrepItem> = {
     whyEdunavyx: [
       "Instructors with proven 99th-percentile personal test scores and years of mentorship experience",
       "Thorough training on built-in digital tools including the interactive Desmos graphing environment",
-      "Extensive proprietary question banks reflecting the latest Digital SAT test question evolutions",
+      "Extensive proprietary question banks reflecting the latest SAT test question evolutions",
       "Strategic integration with your international university list to ensure target scores match your dream colleges",
     ],
     faqs: [
       {
-        question: "How does the Digital SAT's adaptive nature work?",
-        answer: "The Digital SAT has two stages per section. Your performance on the first module determines whether you receive an easier or more challenging second module, which affects your maximum possible score.",
+        question: "How does the SAT's adaptive nature work?",
+        answer: "The SAT has two stages per section. Your performance on the first module determines whether you receive an easier or more challenging second module, which affects your maximum possible score.",
       },
       {
         question: "Is a calculator allowed on the entire Math section?",

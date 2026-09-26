@@ -2,7 +2,8 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Check, Compass, Headphones, Sparkles } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import aboutImage from "@/assets/about-students.jpg";
+import { BackButton } from "@/components/back-button";
+import aboutImage from "@/assets/about-counselling.jpg";
 import logoImage from "@/assets/edunavyx-logo.png";
 import { getService } from "@/lib/services";
 
@@ -49,7 +50,7 @@ function ServiceDetailPage() {
           <div className="nav-actions">
             <Button asChild className="nav-cta"><Link to="/" hash="contact">Book Free Consultation <ArrowRight /></Link></Button>
             <a
-              href="https://wa.me/919876543210?text=Hi%20EDUNAVYX%2C%20I%20would%20like%20to%20know%20more%20about%20studying%20abroad."
+              href="https://wa.me/918796556462?text=Hi%20EDUNAVYX%2C%20I%20would%20like%20to%20know%20more%20about%20studying%20abroad."
               target="_blank"
               rel="noopener noreferrer"
               className="whatsapp-nav-btn"
@@ -66,20 +67,22 @@ function ServiceDetailPage() {
 
       <main>
         <section className="service-detail-hero">
-          <div className="container service-detail-hero-grid">
-            <div className="service-detail-copy">
-              <Link to="/" hash="services" className="service-back"><ArrowLeft /> All services</Link>
-              <span className="eyebrow">SERVICE {service.number}</span>
-              <h1>{service.title}</h1>
-              <p style={{ fontSize: "20px", fontWeight: 700, color: "var(--navy)", margin: "0 0 14px", lineHeight: 1.35 }}>
-                {service.headline}
-              </p>
-              <p>{service.introduction}</p>
-              <Button size="lg" asChild><Link to="/" hash="contact">Talk to a Counsellor <ArrowRight /></Link></Button>
-            </div>
-            <div className="service-detail-visual">
-              <img src={service.image} alt={service.imageAlt} width={1200} height={1000} />
-              <div className="service-detail-badge"><Sparkles /><strong>Personalized support</strong><span>Built around your goals</span></div>
+          <div className="container">
+            <BackButton to="/" hash="services" label="All services" />
+            <div className="service-detail-hero-grid">
+              <div className="service-detail-copy">
+                <span className="eyebrow">SERVICE {service.number}</span>
+                <h1>{service.title}</h1>
+                <p style={{ fontSize: "20px", fontWeight: 700, color: "var(--navy)", margin: "0 0 14px", lineHeight: 1.35 }}>
+                  {service.headline}
+                </p>
+                <p>{service.introduction}</p>
+                <Button size="lg" asChild className="service-detail-btn"><Link to="/" hash="contact">Talk to a Counsellor <ArrowRight /></Link></Button>
+              </div>
+              <div className="service-detail-visual">
+                <img src={service.image} alt={service.imageAlt} width={1200} height={1000} />
+                <div className="service-detail-badge"><Sparkles /><strong>Personalized support</strong><span>Built around your goals</span></div>
+              </div>
             </div>
           </div>
         </section>

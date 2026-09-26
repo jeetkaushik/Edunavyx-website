@@ -38,8 +38,7 @@ import heroImage from "@/assets/hero-image.jpeg";
 import heroStudentPng from "@/assets/hero-student.jpeg";
 import heroGraduate1 from "@/assets/hero-graduate1.jpg";
 import heroStudentJpg from "@/assets/hero-student.jpg";
-import edunavyxHero from "@/assets/edunavyx-hero.jpg";
-import aboutImage from "@/assets/about-students.jpg";
+import aboutImage from "@/assets/about-counselling.jpg";
 import serviceImage from "@/assets/services-advisor.jpg";
 import successImage from "@/assets/student-success.jpg";
 import ctaImage from "@/assets/cta-student.jpg";
@@ -88,7 +87,7 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-const WHATSAPP_NUMBER = "919876543210";
+const WHATSAPP_NUMBER = "918796556462";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
   "Hi EDUNAVYX, I would like to know more about studying abroad."
 )}`;
@@ -106,7 +105,6 @@ const heroForegroundImages = [
   { src: heroStudentPng, alt: "International student preparing for university study abroad" },
   { src: heroGraduate1, alt: "Proud graduate of world-renowned partner university" },
   { src: heroStudentJpg, alt: "Student walking through international campus" },
-  { src: edunavyxHero, alt: "Student celebrating admission offer with EDUNAVYX" },
 ];
 
 
@@ -728,11 +726,6 @@ function CareerCompassSection() {
 
                   {/* Center Hub Content */}
                   <div className="radial-hub-content">
-                    <div className="radial-hub-title-wrap">
-                      <span className="hub-title-main">CAREER</span>
-                      <span className="hub-title-accent">COMPASS</span>
-                    </div>
-
                     <div className="radial-hub-stage-indicator">
                       <span className="stage-indicator-dot" />
                       <span className="stage-indicator-text">
@@ -1009,16 +1002,16 @@ const testPrepServices = [
   {
     id: "sat" as const,
     title: "SAT",
-    headline: "Build the skills that strengthen your university application.",
+    headline: "98 Questions | 2 hr 14 min | Adaptive | Score: 400–1600 | 2 Sections",
     conciseDescription:
-      "Focused training in Digital SAT Math, Reading and Writing with targeted question strategies, time management, and score optimization.",
+      "Recognised by universities across the USA, Canada, UK, Australia, India, Singapore, Hong Kong and several other countries worldwide.",
     icon: Target,
     categoryBadge: "GLOBAL STANDARDIZED TEST",
     cardImage: testCardSat,
     cardImageAlt: "Academic study and SAT test preparation",
     ctaLabel: "Explore SAT Guidance",
     highlights: [
-      "Digital SAT Curriculum",
+      "SAT Curriculum",
       "Reading, Writing & Mathematics",
       "Targeted Score Optimization",
     ],
@@ -1344,6 +1337,7 @@ function TestimonialsSection() {
                       src={story.image}
                       alt={`${story.name}, studying ${story.programme} at ${story.university}`}
                       className="success-story-img"
+                      style={story.imagePosition ? { objectPosition: story.imagePosition } : undefined}
                       loading="lazy"
                     />
                   </div>
@@ -1359,6 +1353,7 @@ function TestimonialsSection() {
                         src={story.image}
                         alt=""
                         className="success-author-avatar"
+                        style={story.avatarPosition ? { objectPosition: story.avatarPosition } : story.imagePosition ? { objectPosition: story.imagePosition } : undefined}
                         aria-hidden="true"
                         loading="lazy"
                       />
@@ -1484,6 +1479,7 @@ function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
   const [testimonial, setTestimonial] = useState(0);
+  const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [agreed, setAgreed] = useState(false);
   const [formError, setFormError] = useState("");
@@ -1517,12 +1513,18 @@ function HomePage() {
     };
   }, []);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
+    const formElement = event.currentTarget;
+    const data = new FormData(formElement);
     const email = String(data.get("email") ?? "").trim();
     const phone = String(data.get("phone") ?? data.get("mobile") ?? "").replace(/\D/g, "");
     const name = String(data.get("fullName") ?? data.get("name") ?? `${data.get("firstName") ?? ""} ${data.get("lastName") ?? ""}`).trim();
+    const educationLevel = String(data.get("educationLevel") ?? "").trim();
+    const interest = String(data.get("interest") ?? "").trim();
+    const destination = String(data.get("destination") ?? "").trim();
+    const message = String(data.get("message") ?? "").trim();
+
     if (
       !name ||
       !/^\S+@\S+\.\S+$/.test(email) ||
@@ -1533,7 +1535,34 @@ function HomePage() {
       return;
     }
     setFormError("");
-    setSubmitted(true);
+    setSubmitting(true);
+
+    try {
+      await fetch("https://formsubmit.co/ajax/admissions@edunavyx.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          _subject: `New Edunavyx Admissions Enquiry: ${name} (${interest || "General"})`,
+          _replyto: email,
+          _template: "table",
+          "Full Name": name,
+          "Email Address": email,
+          "Phone / WhatsApp": phone,
+          "Education Level": educationLevel || "Not specified",
+          "Area of Interest": interest || "Not specified",
+          "Preferred Destination": destination || "Not specified",
+          "Message": message || "No message provided",
+        }),
+      });
+    } catch (err) {
+      console.warn("Direct form submission notice:", err);
+    } finally {
+      setSubmitting(false);
+      setSubmitted(true);
+    }
   };
 
   const navItems = [
@@ -1700,9 +1729,6 @@ function HomePage() {
 
             {/* 2. HERO FOREGROUND IMAGE CAROUSEL (CYCLES EVERY 2 SECONDS) */}
             <div className="hero-visual reveal is-visible">
-              <div className="route-line">
-                <Plane />
-              </div>
               <div className="hero-carousel-container" aria-live="off">
                 {heroForegroundImages.map((img, index) => (
                   <img
@@ -2140,7 +2166,10 @@ function HomePage() {
                 </div>
                 <p className="whatsapp-card-copy">
                   Have quick questions about courses, university shortlisting, intake deadlines, or test preparation?
-                  Contact Edunavyx directly on WhatsApp for prompt, personalized guidance.
+                  Contact Edunavyx directly on WhatsApp (+91 87965 56462) or email{" "}
+                  <a href="mailto:admissions@edunavyx.com" style={{ color: "var(--teal)", fontWeight: 700, textDecoration: "underline" }}>
+                    admissions@edunavyx.com
+                  </a>.
                 </p>
                 <a
                   href={WHATSAPP_URL}
@@ -2150,7 +2179,7 @@ function HomePage() {
                   aria-label="Chat with Edunavyx on WhatsApp"
                 >
                   <WhatsAppIcon className="w-5 h-5" />
-                  <span>Chat on WhatsApp Now</span>
+                  <span>Chat on WhatsApp (+91 87965 56462)</span>
                 </a>
               </div>
             </div>
@@ -2162,8 +2191,26 @@ function HomePage() {
                     <Check />
                   </span>
                   <h2>Your journey starts now.</h2>
-                  <p>Thanks for reaching out. An EDUNAVYX counsellor will contact you shortly.</p>
-                  <Button onClick={() => setSubmitted(false)}>Send another enquiry</Button>
+                  <p>
+                    Thank you! Your enquiry has been sent to{" "}
+                    <strong>admissions@edunavyx.com</strong>. An EDUNAVYX counsellor will
+                    review your profile and contact you shortly.
+                  </p>
+                  <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap", marginTop: "20px" }}>
+                    <a
+                      href={WHATSAPP_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="whatsapp-card-cta-btn"
+                      style={{ textDecoration: "none", display: "inline-flex", alignItems: "center" }}
+                    >
+                      <WhatsAppIcon className="w-5 h-5 mr-2" />
+                      <span>Chat on WhatsApp (8796556462)</span>
+                    </a>
+                    <Button variant="outline" onClick={() => setSubmitted(false)}>
+                      Send another enquiry
+                    </Button>
+                  </div>
                 </div>
               ) : (
                 <>
@@ -2171,9 +2218,20 @@ function HomePage() {
                   <h2 id="contact-heading">Let's Plan Your Global Future</h2>
                   <p className="contact-panel-intro">
                     Tell us a little about your academic aspirations and our expert advisors will
-                    map out your personalized pathway.
+                    map out your personalized pathway. All responses are sent to{" "}
+                    <strong>admissions@edunavyx.com</strong>.
                   </p>
-                  <form onSubmit={handleSubmit} noValidate>
+                  <form
+                    onSubmit={handleSubmit}
+                    action="https://formsubmit.co/admissions@edunavyx.com"
+                    method="POST"
+                    name="contact"
+                    data-netlify="true"
+                    noValidate
+                  >
+                    <input type="hidden" name="form-name" value="contact" />
+                    <input type="hidden" name="_subject" value="New Edunavyx Admissions Enquiry" />
+                    <input type="hidden" name="_to" value="admissions@edunavyx.com" />
                     <div className="form-grid">
                       <div>
                         <Label htmlFor="fullName">Name *</Label>
@@ -2203,7 +2261,7 @@ function HomePage() {
                           name="phone"
                           type="tel"
                           maxLength={20}
-                          placeholder="+91 98765 43210"
+                          placeholder="+91 87965 56462"
                           required
                         />
                       </div>
@@ -2272,8 +2330,8 @@ function HomePage() {
                         {formError}
                       </p>
                     )}
-                    <Button type="submit" size="lg" className="contact-submit-btn">
-                      Get Free Consultation <ArrowRight />
+                    <Button type="submit" size="lg" className="contact-submit-btn" disabled={submitting}>
+                      {submitting ? "Sending to admissions@edunavyx.com..." : <>Get Free Consultation <ArrowRight /></>}
                     </Button>
                   </form>
                 </>
@@ -2302,7 +2360,7 @@ function HomePage() {
                 aria-label="Contact Edunavyx on WhatsApp"
               >
                 <WhatsAppIcon className="w-4 h-4" />
-                <span>Chat on WhatsApp</span>
+                <span>Chat on WhatsApp (+91 87965 56462)</span>
               </a>
             </div>
           </div>
@@ -2334,8 +2392,9 @@ function HomePage() {
           <div className="footer-col">
             <strong className="footer-col-title">Connect</strong>
             <a href="#contact">Book Free Consultation</a>
+            <a href="mailto:admissions@edunavyx.com">admissions@edunavyx.com</a>
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-              WhatsApp Advisory
+              WhatsApp (+91 87965 56462)
             </a>
             <div className="footer-socials-block">
               <span className="footer-social-label">Follow Us</span>
