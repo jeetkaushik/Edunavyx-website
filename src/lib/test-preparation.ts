@@ -144,7 +144,7 @@ export const testPreparationData: Record<string, TestPrepItem> = {
     title: "SAT",
     shortTitle: "SAT",
     categoryBadge: "Global Standardized Test",
-    headline: "98 Questions | 2 hr 14 min | Adaptive | Score: 400–1600 | 2 Sections",
+    headline: "Unlock your path to global universities.",
     conciseDescription:
       "Recognised by universities across the USA, Canada, UK, Australia, India, Singapore, Hong Kong and several other countries worldwide.",
     cardImage: testCardSat,

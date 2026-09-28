@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60" fill="none">
+  <!-- Columbia Crown -->
+  <g transform="translate(10, 10)">
+    <path d="M4 36 h32 v4 h-32 Z" fill="#9BCBEB"/>
+    <path d="M6 34 l-2 -18 l9 10 l7 -14 l7 14 l9 -10 l-2 18 Z" fill="#1D3A68"/>
+    <circle cx="4" cy="14" r="2.5" fill="#9BCBEB"/>
+    <circle cx="13" cy="24" r="2" fill="#9BCBEB"/>
+    <circle cx="20" cy="10" r="3" fill="#D4AF37"/>
+    <circle cx="27" cy="24" r="2" fill="#9BCBEB"/>
+    <circle cx="36" cy="14" r="2.5" fill="#9BCBEB"/>
+  </g>
+  <text x="56" y="27" font-family="'Cinzel', 'Times New Roman', serif" font-size="14.5" font-weight="700" fill="#1D3A68" letter-spacing="0.08em">COLUMBIA</text>
+  <text x="56" y="43" font-family="'Cinzel', 'Times New Roman', serif" font-size="10.5" font-weight="600" fill="#9BCBEB" letter-spacing="0.14em">UNIVERSITY</text>
+</svg>

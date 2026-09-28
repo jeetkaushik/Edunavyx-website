@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60" fill="none">
+  <!-- TUM Iconic Blue Mark -->
+  <g transform="translate(10, 8)" fill="#0065BD">
+    <!-- T -->
+    <rect x="0" y="0" width="36" height="8"/>
+    <rect x="14" y="8" width="8" height="34"/>
+    <!-- U -->
+    <path d="M42 0 h8 v34 q0 8 8 8 q8 0 8 -8 v-34 h8 v34 q0 16 -16 16 q-16 0 -16 -16 Z"/>
+    <!-- M -->
+    <path d="M78 0 h8 l10 24 l10 -24 h8 v42 h-8 v-28 l-10 24 h-2 l-10 -24 v28 h-8 Z"/>
+  </g>
+  <text x="136" y="27" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="700" fill="#0065BD" letter-spacing="0.06em">TECHNISCHE</text>
+  <text x="136" y="38" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="700" fill="#0065BD" letter-spacing="0.06em">UNIVERSITÄT</text>
+  <text x="136" y="49" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="700" fill="#0065BD" letter-spacing="0.06em">MÜNCHEN</text>
+</svg>

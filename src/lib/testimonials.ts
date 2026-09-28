@@ -28,8 +28,8 @@ export const studentTestimonials: TestimonialItem[] = [
       "Choosing the right university for my Master’s in Psychology was an important decision, and Edunavyx made the entire journey much easier. From understanding my preferences and shortlisting universities to supporting my applications, the team guided me at every step. Their personalised approach helped me understand course structures and align with my academic goals, helping me confidently secure admission at the University of Southampton with full visa and documentation support.",
   },
   {
-    id: "saloni-singh",
-    name: "Saloni Singh",
+    id: "saloni-gupta",
+    name: "Saloni Gupta",
     programme: "Master’s in Publishing",
     university: "University College London",
     image: saloniImg,

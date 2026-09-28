@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60" fill="none">
+  <!-- TU Delft Cyan Wordmark -->
+  <g transform="translate(10, 10)">
+    <text x="0" y="32" font-family="'Arial Black', 'Helvetica Neue', sans-serif" font-size="28" font-weight="900" fill="#00A6D6" letter-spacing="-0.02em">TU Delft</text>
+  </g>
+  <text x="136" y="27" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8.5" font-weight="700" fill="#000000" letter-spacing="0.04em">DELFT UNIVERSITY OF</text>
+  <text x="136" y="41" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8.5" font-weight="700" fill="#00A6D6" letter-spacing="0.04em">TECHNOLOGY</text>
+</svg>

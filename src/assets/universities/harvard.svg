@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60" fill="none">
+  <!-- Harvard Veritas Shield -->
+  <g transform="translate(10, 6)">
+    <path d="M4 4 h32 v22 c0 12 -16 20 -16 20 s-16 -8 -16 -20 Z" fill="#A51C30"/>
+    <!-- 3 Books -->
+    <!-- Top Left -->
+    <rect x="9" y="12" width="10" height="8" rx="1" fill="#FFFFFF"/>
+    <text x="14" y="18" font-family="'Times New Roman', serif" font-size="5.5" font-weight="700" fill="#A51C30" text-anchor="middle">VE</text>
+    <!-- Top Right -->
+    <rect x="21" y="12" width="10" height="8" rx="1" fill="#FFFFFF"/>
+    <text x="26" y="18" font-family="'Times New Roman', serif" font-size="5.5" font-weight="700" fill="#A51C30" text-anchor="middle">RI</text>
+    <!-- Bottom Center -->
+    <rect x="15" y="24" width="10" height="8" rx="1" fill="#FFFFFF"/>
+    <text x="20" y="30" font-family="'Times New Roman', serif" font-size="5.5" font-weight="700" fill="#A51C30" text-anchor="middle">TAS</text>
+  </g>
+  <text x="56" y="28" font-family="'Cinzel', 'Times New Roman', serif" font-size="16" font-weight="700" fill="#1e293b" letter-spacing="0.08em">HARVARD</text>
+  <text x="56" y="44" font-family="'Cinzel', 'Times New Roman', serif" font-size="10.5" font-weight="600" fill="#A51C30" letter-spacing="0.16em">UNIVERSITY</text>
+</svg>

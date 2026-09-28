@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60" fill="none">
+  <!-- Alberta Crest -->
+  <g transform="translate(10, 6)">
+    <path d="M4 4 h32 v22 c0 12 -16 20 -16 20 s-16 -8 -16 -20 Z" fill="#007C41"/>
+    <!-- Book & Wheat -->
+    <path d="M10 14 h20 v12 h-20 Z" fill="#E5AA00"/>
+    <path d="M12 18 h16 v2 h-16 Z" fill="#FFFFFF"/>
+    <path d="M12 22 h16 v2 h-16 Z" fill="#FFFFFF"/>
+  </g>
+  <text x="56" y="27" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" font-weight="700" fill="#007C41" letter-spacing="0.06em">UNIVERSITY OF</text>
+  <text x="56" y="44" font-family="'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="900" fill="#007C41" letter-spacing="0.04em">ALBERTA</text>
+</svg>

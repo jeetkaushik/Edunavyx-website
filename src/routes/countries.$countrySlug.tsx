@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { BackButton } from "@/components/back-button";
 import logoImage from "@/assets/edunavyx-logo.png";
 import { getCountry } from "@/lib/countries";
+import { getInstitutionsForCountry } from "@/components/university-logos";
 
 export const Route = createFileRoute("/countries/$countrySlug")({
   loader: ({ params }) => {
@@ -130,22 +131,38 @@ function CountryDetailPage() {
               <p>{country.institutionsLead}</p>
             </div>
             <div className="country-institutions-grid">
-              {country.institutions.map((inst, idx) => (
-                <div className="country-institution-card" key={idx}>
-                  <div className="country-institution-top">
-                    <GraduationCap className="country-institution-icon" aria-hidden="true" />
-                    <span className="country-institution-badge">{country.name}</span>
+              {(() => {
+                const partnerLogos = getInstitutionsForCountry(country.slug);
+                if (partnerLogos.length > 0) {
+                  return partnerLogos.map((uni) => (
+                    <div className="country-institution-card" key={uni.id || uni.name}>
+                      <div className="country-institution-logo-wrap">
+                        <img
+                          src={uni.src}
+                          alt={`${uni.name} official logo`}
+                          className="country-institution-logo"
+                          loading="lazy"
+                          width={200}
+                          height={52}
+                        />
+                      </div>
+                      <div className="country-institution-details">
+                        <span className="country-institution-name">{uni.name}</span>
+                        {uni.rank && (
+                          <span className="country-institution-rank-pill">{uni.rank}</span>
+                        )}
+                      </div>
+                    </div>
+                  ));
+                }
+                return country.institutions.map((inst, idx) => (
+                  <div className="country-institution-card" key={idx}>
+                    <div className="country-institution-details">
+                      <span className="country-institution-name">{inst}</span>
+                    </div>
                   </div>
-                  <h3>{inst}</h3>
-                  <div className="country-institution-footer">
-                    <Button asChild size="sm" variant="ghost" className="country-institution-btn">
-                      <Link to="/" hash="contact">
-                        Admissions Guidance <ArrowRight className="w-3.5 h-3.5 ml-1" />
-                      </Link>
-                    </Button>
-                  </div>
-                </div>
-              ))}
+                ));
+              })()}
             </div>
           </div>
         </section>

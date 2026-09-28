@@ -38,7 +38,7 @@ import heroImage from "@/assets/hero-image.jpeg";
 import heroStudentPng from "@/assets/hero-student.jpeg";
 import heroGraduate1 from "@/assets/hero-graduate1.jpg";
 import heroStudentJpg from "@/assets/hero-student.jpg";
-import aboutImage from "@/assets/about-counselling.jpg";
+import aboutImage from "@/assets/about-counselling.jpeg";
 import serviceImage from "@/assets/services-advisor.jpg";
 import successImage from "@/assets/student-success.jpg";
 import ctaImage from "@/assets/cta-student.jpg";
@@ -726,6 +726,10 @@ function CareerCompassSection() {
 
                   {/* Center Hub Content */}
                   <div className="radial-hub-content">
+                    <div className="radial-hub-title-wrap">
+                      <span className="hub-title-main">Career</span>
+                      <span className="hub-title-accent">Compass</span>
+                    </div>
                     <div className="radial-hub-stage-indicator">
                       <span className="stage-indicator-dot" />
                       <span className="stage-indicator-text">
@@ -1002,7 +1006,7 @@ const testPrepServices = [
   {
     id: "sat" as const,
     title: "SAT",
-    headline: "98 Questions | 2 hr 14 min | Adaptive | Score: 400–1600 | 2 Sections",
+    headline: "Unlock your path to global universities.",
     conciseDescription:
       "Recognised by universities across the USA, Canada, UK, Australia, India, Singapore, Hong Kong and several other countries worldwide.",
     icon: Target,
@@ -1055,7 +1059,6 @@ function TestPreparationSection() {
         <div className="test-prep-header-wrap reveal">
           <div className="test-prep-header">
             <div className="test-prep-eyebrow-row">
-              <span className="test-prep-eyebrow-dash" aria-hidden="true" />
               <span className="eyebrow">TEST PREPARATION</span>
             </div>
             <h2 className="test-prep-heading">
@@ -1743,15 +1746,15 @@ function HomePage() {
                 ))}
               </div>
               <div className="floating-card floating-card-top">
-                <MapPin />
+                <Building2 />
                 <span>
-                  <strong>50+</strong> Countries
+                  <strong>30+</strong> Universities
                 </span>
               </div>
               <div className="floating-card floating-card-bottom">
                 <GraduationCap />
                 <span>
-                  <strong>10,000+</strong> Students guided
+                  <strong>700+</strong> Students
                 </span>
               </div>
             </div>
@@ -1794,7 +1797,7 @@ function HomePage() {
                   <strong className="stat-number">
                     <Counter value={100} suffix="+" />
                   </strong>
-                  <span className="stat-text">Guided to Higher Education</span>
+                  <span className="stat-text">University Admissions</span>
                 </div>
               </div>
             </div>
@@ -1810,7 +1813,7 @@ function HomePage() {
                   Edunavyx was created with a simple belief: education decisions should begin with the student, not with a country, university or course.
                 </p>
                 <p>
-                  With 90+ years of collective experience across overseas education and the corporate sector, our founders bring together deep industry knowledge, professional expertise and a strong understanding of evolving career opportunities. Having counselled 500+ students and guided 100+ students towards higher education, we understand that every student has a unique combination of strengths, interests, aspirations and potential.
+                  With 90+ years of collective experience across overseas education and the corporate sector, our founders bring together deep industry knowledge, professional expertise and a strong understanding of evolving career opportunities. Having counselled 500+ students, we understand that every student has a unique combination of strengths, interests, aspirations and potential.
                 </p>
                 <p>
                   Our approach is personalised, transparent and student-centric, helping students make informed decisions at every stage, from career discovery and psychometric assessment to profile building, test preparation, university selection, admissions and international education support.
@@ -1884,7 +1887,7 @@ function HomePage() {
         >
           {/* Subtle decorative background wave / glow */}
           <div className="uni-bg-ambient-glow" aria-hidden="true" />
-          
+
           <div className="container universities-container">
             {/* HERO / HEADER AREA: Two-Column Composition */}
             <div className="universities-hero-grid reveal">
@@ -1896,7 +1899,7 @@ function HomePage() {
                 </div>
 
                 <h2 id="universities-heading" className="universities-main-headline">
-                  Partnered with<br />
+                  Your Gateway to<br />
                   <span className="universities-gradient-text">World-Class Universities</span>
                 </h2>
 
@@ -2081,8 +2084,8 @@ function HomePage() {
             <div className="uni-corner-tag london">
               <span className="uni-tag-handwritten">London</span>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M4 18 C 10 14, 16 10, 20 4" stroke="#0d9488" strokeWidth="1.8" strokeLinecap="round"/>
-                <path d="M14 4 L 20 4 L 20 10" stroke="#0d9488" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M4 18 C 10 14, 16 10, 20 4" stroke="#0d9488" strokeWidth="1.8" strokeLinecap="round" />
+                <path d="M14 4 L 20 4 L 20 10" stroke="#0d9488" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
           </div>
@@ -2097,8 +2100,8 @@ function HomePage() {
             <div className="uni-corner-tag melbourne">
               <span className="uni-tag-handwritten">Melbourne</span>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M4 20 C 8 12, 14 8, 20 5" stroke="#0d9488" strokeWidth="1.8" strokeLinecap="round"/>
-                <path d="M14 4 L 20 5 L 18 12" stroke="#0d9488" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M4 20 C 8 12, 14 8, 20 5" stroke="#0d9488" strokeWidth="1.8" strokeLinecap="round" />
+                <path d="M14 4 L 20 5 L 18 12" stroke="#0d9488" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
           </div>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60" fill="none">
+  <!-- Berkeley Seal / Script -->
+  <g transform="translate(10, 6)">
+    <circle cx="20" cy="24" r="20" fill="#003262"/>
+    <circle cx="20" cy="24" r="17" fill="none" stroke="#FDB515" stroke-width="1.5"/>
+    <path d="M12 24 h16" stroke="#FFFFFF" stroke-width="1.5"/>
+    <!-- Book -->
+    <path d="M14 20 h12 v8 h-12 Z" fill="#FDB515"/>
+    <path d="M20 20 v8" stroke="#003262" stroke-width="1"/>
+  </g>
+  <text x="56" y="32" font-family="'Cinzel', 'Times New Roman', serif" font-size="16" font-weight="900" fill="#003262" letter-spacing="0.04em">Berkeley</text>
+  <text x="56" y="46" font-family="'Helvetica Neue', Arial, sans-serif" font-size="8.5" font-weight="600" fill="#FDB515" letter-spacing="0.08em">UNIVERSITY OF CALIFORNIA</text>
+</svg>
