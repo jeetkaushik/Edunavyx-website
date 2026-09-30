@@ -1748,7 +1748,7 @@ function HomePage() {
               <div className="floating-card floating-card-top">
                 <Building2 />
                 <span>
-                  <strong>30+</strong> Universities
+                  <strong>30+</strong> Countries
                 </span>
               </div>
               <div className="floating-card floating-card-bottom">
@@ -1792,13 +1792,13 @@ function HomePage() {
                   </strong>
                   <span className="stat-text">Students Counselled</span>
                 </div>
-                <div className="about-stat-divider" aria-hidden="true" />
-                <div className="about-stat-box">
+                {/* <div className="about-stat-divider" aria-hidden="true" /> */}
+                {/* <div className="about-stat-box">
                   <strong className="stat-number">
                     <Counter value={100} suffix="+" />
                   </strong>
                   <span className="stat-text">University Admissions</span>
-                </div>
+                </div> */}
               </div>
             </div>
 

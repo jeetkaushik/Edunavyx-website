@@ -19,7 +19,7 @@ export interface TestimonialItem {
 export const studentTestimonials: TestimonialItem[] = [
   {
     id: "kangana-singh",
-    name: "Kangana Singh",
+    name: "Kangan Singh",
     programme: "MSc Psychology",
     university: "University of Southampton",
     image: kanganaImg,

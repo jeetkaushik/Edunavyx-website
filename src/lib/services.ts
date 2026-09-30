@@ -1,4 +1,6 @@
 import universityShortlistingImg from "@/assets/service-university-shortlisting.jpg";
+import ShortlistingImg from "@/assets/Indian-Abroad.png";
+import profileImg from "@/assets/profile.jpeg";
 
 export type Service = {
   number: string;
@@ -30,7 +32,7 @@ export const services: Service[] = [
       "We help students identify career and course pathways by bringing together their interests, strengths, aptitude and aspirations. Our guidance also considers evolving industries and future opportunities, helping students make informed academic choices aligned with their potential and goals.",
     introduction:
       "We help students identify career and course pathways by bringing together their interests, strengths, aptitude and aspirations. Our guidance also considers evolving industries and future opportunities, helping students make informed academic choices aligned with their potential and goals.",
-    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1400&q=80",
+    image: ShortlistingImg,
     imageAlt: "Counsellor guiding a student on career and course pathways",
     includes: [
       "Aptitude, interest and personality evaluation",
@@ -62,7 +64,7 @@ export const services: Service[] = [
       "We help students develop authentic profiles through meaningful projects, competitions, internships, certifications, leadership initiatives and community engagement. Profile-building strategies are aligned with the student's intended course, university and long-term goals, with an emphasis on genuine engagement and personal growth.",
     introduction:
       "We help students develop authentic profiles through meaningful projects, competitions, internships, certifications, leadership initiatives and community engagement. Profile-building strategies are aligned with the student's intended course, university and long-term goals, with an emphasis on genuine engagement and personal growth.",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80",
+    image: profileImg,
     imageAlt: "Students collaborating on impactful academic projects and leadership initiatives",
     includes: [
       "Extracurricular and leadership strategy",
