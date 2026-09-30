@@ -2350,6 +2350,7 @@ function HomePage() {
           {/* Brand Column */}
           <div className="footer-brand">
             <Logo inverse />
+            <p className="footer-brand-statement">Address: A 60, Delta 2, Greater Noida</p>
             <p className="footer-brand-statement">
               Empowering students with personalised career discovery, comprehensive test
               preparation, and expert global university admissions.
