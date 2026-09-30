@@ -1788,7 +1788,7 @@ function HomePage() {
               <div className="about-stats-strip">
                 <div className="about-stat-box">
                   <strong className="stat-number">
-                    <Counter value={500} suffix="+" />
+                    <Counter value={700} suffix="+" />
                   </strong>
                   <span className="stat-text">Students Counselled</span>
                 </div>
