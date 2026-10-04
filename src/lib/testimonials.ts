@@ -4,6 +4,7 @@ import navyaImg from "@/assets/testimonial-navya.png";
 import adityaImg from "@/assets/testimonial-aditya.png";
 import sahilImg from "@/assets/testimonial-sahil.jpg";
 import agastyaImg from "@/assets/testimonial-agastya.jpg";
+import DhariyaImg from "@/assets/dhariya.jpeg"
 
 export interface TestimonialItem {
   id: string;
@@ -26,6 +27,15 @@ export const studentTestimonials: TestimonialItem[] = [
     imagePosition: "center 20%",
     quote:
       "Choosing the right university for my Master’s in Psychology was an important decision, and Edunavyx made the entire journey much easier. From understanding my preferences and shortlisting universities to supporting my applications, the team guided me at every step. Their personalised approach helped me understand course structures and align with my academic goals, helping me confidently secure admission at the University of Southampton with full visa and documentation support.",
+  }, {
+    id: "Dhairya-Maheshwar",
+    name: "Dhairya Maheshwar",
+    programme: "BSc Engineering",
+    university: "University of Washington",
+    image: DhariyaImg,
+    imagePosition: "center 20%",
+    quote:
+      "Edunavyx made my journey structured and stress-free. The team understood my academic interests and career goals and guided me through university selection, applications, admission requirements, and the visa process. Their personalised support and attention to detail gave me confidence at every step. I’m grateful to Edunavyx for helping me pursue my BSc in Engineering at the University of Washington. I would highly recommend them to students seeking genuine and personalised guidance for studying abroad."
   },
   {
     id: "saloni-gupta",

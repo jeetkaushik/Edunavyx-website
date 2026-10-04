@@ -41,6 +41,12 @@ import tudelftLogo from "@/assets/universities/tudelft.svg";
 import otagoLogo from "@/assets/universities/otago.svg";
 import ntuLogo from "@/assets/universities/ntu.svg";
 
+// Premier Indian University Logos (Official Assets)
+import ashokaLogo from "@/assets/universities/ashoka.png";
+import shivNadarLogo from "@/assets/universities/shiv-nadar.svg";
+import nmimsLogo from "@/assets/universities/nmims.png";
+import flameLogo from "@/assets/universities/flame.png";
+
 export interface UniversityPartner {
   id: string;
   name: string;
@@ -107,6 +113,11 @@ const officialLogos: Record<string, { src: string; name: string }> = {
   otago: { src: otagoLogo, name: "University of Otago" },
   // Singapore
   ntu: { src: ntuLogo, name: "Nanyang Technological University" },
+  // India
+  ashoka: { src: ashokaLogo, name: "Ashoka University" },
+  "shiv-nadar": { src: shivNadarLogo, name: "Shiv Nadar University" },
+  nmims: { src: nmimsLogo, name: "NMIMS University" },
+  flame: { src: flameLogo, name: "FLAME University" },
 };
 
 export function UniversityLogo({
@@ -155,6 +166,10 @@ export const topRankedUniversities: UniversityPartner[] = [
   { id: "monash", name: "Monash University", country: "Australia", rank: "QS #37", featured: true },
   { id: "uwa", name: "The University of Western Australia", country: "Australia", rank: "QS #72", featured: true },
   { id: "amsterdam", name: "University of Amsterdam", country: "Netherlands", rank: "QS #53", featured: true },
+  { id: "ashoka", name: "Ashoka University", country: "India", rank: "Top Liberal Arts", featured: true },
+  { id: "shiv-nadar", name: "Shiv Nadar University", country: "India", rank: "Delhi NCR", featured: true },
+  { id: "nmims", name: "NMIMS University", country: "India", rank: "Top Deemed University", featured: true },
+  { id: "flame", name: "FLAME University", country: "India", rank: "Pioneer Liberal Education", featured: true },
 ];
 
 export const stripUniversities: UniversityPartner[] = [
@@ -251,6 +266,26 @@ export const universityThemes: Record<string, UniversityTheme> = {
     accent: "#475569",
     bg: "linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)",
     border: "rgba(100, 116, 139, 0.25)",
+  },
+  ashoka: {
+    accent: "#8B1724",
+    bg: "linear-gradient(180deg, #ffffff 0%, #fdf2f2 100%)",
+    border: "rgba(139, 23, 36, 0.25)",
+  },
+  "shiv-nadar": {
+    accent: "#006DB4",
+    bg: "linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%)",
+    border: "rgba(0, 109, 180, 0.25)",
+  },
+  nmims: {
+    accent: "#B91C1C",
+    bg: "linear-gradient(180deg, #ffffff 0%, #fef2f2 100%)",
+    border: "rgba(185, 28, 28, 0.25)",
+  },
+  flame: {
+    accent: "#EA580C",
+    bg: "linear-gradient(180deg, #ffffff 0%, #fff7ed 100%)",
+    border: "rgba(234, 88, 12, 0.25)",
   },
 };
 
