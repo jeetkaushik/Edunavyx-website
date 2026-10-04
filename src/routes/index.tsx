@@ -66,22 +66,59 @@ import {
   universityThemes,
 } from "@/components/university-logos";
 
+const homeWebPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://edunavyx.com/#webpage",
+  url: "https://edunavyx.com/",
+  name: "Edunavyx | Global Education & Study Abroad Consultants",
+  description:
+    "Empowering students with personalised career discovery, profile building, test prep (SAT, CUET, IELTS), and expert global university admissions guidance.",
+  isPartOf: { "@id": "https://edunavyx.com/#website" },
+  about: { "@id": "https://edunavyx.com/#organization" },
+  inLanguage: "en",
+};
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "EDUNAVYX | Study Abroad Consultants & Global Education Experts" },
+      { title: "Edunavyx | Global Education & Study Abroad Consultants" },
       {
         name: "description",
         content:
-          "Explore universities, countries, scholarships and study-abroad opportunities with EDUNAVYX. Get personalized guidance for your global education journey.",
+          "Empowering students with personalised career discovery, profile building, test prep (SAT, CUET, IELTS), and expert global university admissions guidance.",
       },
-      { property: "og:title", content: "EDUNAVYX | Global Education Experts" },
+      { property: "og:site_name", content: "Edunavyx" },
+      { property: "og:title", content: "Edunavyx | Global Education & Study Abroad Consultants" },
       {
         property: "og:description",
-        content: "Personalized guidance for your global education journey.",
+        content:
+          "Empowering students with personalised career discovery, profile building, test prep (SAT, CUET, IELTS), and expert global university admissions guidance.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://edunavyx.com/" },
+      { property: "og:image", content: "https://edunavyx.com/og-image.png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "Edunavyx - Global Education & Study Abroad Consultants" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Edunavyx | Global Education & Study Abroad Consultants" },
+      {
+        name: "twitter:description",
+        content:
+          "Empowering students with personalised career discovery, profile building, test prep (SAT, CUET, IELTS), and expert global university admissions guidance.",
+      },
+      { name: "twitter:image", content: "https://edunavyx.com/og-image.png" },
+      { name: "twitter:image:alt", content: "Edunavyx - Global Education & Study Abroad Consultants" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://edunavyx.com/" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(homeWebPageSchema),
+      },
     ],
   }),
   component: HomePage,
@@ -266,10 +303,10 @@ function Counter({
 
 function TypewriterHeadline() {
   const [index, setIndex] = useState(0);
-  const [chars, setChars] = useState(0);
-  const [deleting, setDeleting] = useState(false);
   const headline = heroHeadlines[index] ?? heroHeadlines[0];
   const full = `${headline.prefix}${headline.accent}${headline.suffix}`;
+  const [chars, setChars] = useState(full.length);
+  const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {

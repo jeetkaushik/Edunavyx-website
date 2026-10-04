@@ -14,17 +14,96 @@ export const Route = createFileRoute("/services/$serviceSlug")({
     return service;
   },
   head: ({ loaderData }) => {
-    const title = loaderData ? `${loaderData.title} | EDUNAVYX` : "Service Not Found | EDUNAVYX";
-    const description = loaderData?.summary ?? "Explore personalized study-abroad guidance from EDUNAVYX.";
+    const title = loaderData
+      ? `${loaderData.title} | Study Abroad Guidance | Edunavyx`
+      : "Service Not Found | Edunavyx";
+    const description = loaderData
+      ? `${loaderData.cardPreview || loaderData.summary} Study-abroad guidance by Edunavyx.`
+      : "Explore personalized study-abroad guidance, university admissions, and test preparation services from Edunavyx.";
+    const canonicalUrl = loaderData
+      ? `https://edunavyx.com/services/${loaderData.slug}`
+      : "https://edunavyx.com/";
+    const ogImage =
+      typeof loaderData?.image === "string" && loaderData.image.startsWith("http")
+        ? loaderData.image
+        : "https://edunavyx.com/og-image.png";
+
+    const serviceSchema = loaderData
+      ? {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Service",
+              "@id": `${canonicalUrl}#service`,
+              name: loaderData.title,
+              description: loaderData.introduction || loaderData.summary,
+              provider: { "@id": "https://edunavyx.com/#organization" },
+              serviceType: "Educational Consulting",
+              areaServed: "Worldwide",
+              url: canonicalUrl,
+            },
+            {
+              "@type": "WebPage",
+              "@id": `${canonicalUrl}#webpage`,
+              url: canonicalUrl,
+              name: title,
+              description,
+              isPartOf: { "@id": "https://edunavyx.com/#website" },
+              about: { "@id": "https://edunavyx.com/#organization" },
+              breadcrumb: {
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  {
+                    "@type": "ListItem",
+                    position: 1,
+                    name: "Home",
+                    item: "https://edunavyx.com/",
+                  },
+                  {
+                    "@type": "ListItem",
+                    position: 2,
+                    name: "Services",
+                    item: "https://edunavyx.com/#our-expertise",
+                  },
+                  {
+                    "@type": "ListItem",
+                    position: 3,
+                    name: loaderData.title,
+                    item: canonicalUrl,
+                  },
+                ],
+              },
+            },
+          ],
+        }
+      : null;
+
     return {
       meta: [
         { title },
         { name: "description", content: description },
+        { property: "og:site_name", content: "Edunavyx" },
         { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:type", content: "website" },
+        { property: "og:url", content: canonicalUrl },
+        { property: "og:image", content: ogImage },
         { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: description },
+        { name: "twitter:image", content: ogImage },
       ],
+      links: [
+        { rel: "canonical", href: canonicalUrl },
+      ],
+      scripts: serviceSchema
+        ? [
+            {
+              type: "application/ld+json",
+              children: JSON.stringify(serviceSchema),
+            },
+          ]
+        : [],
     };
   },
   component: ServiceDetailPage,

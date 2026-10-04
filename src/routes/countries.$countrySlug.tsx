@@ -14,17 +14,83 @@ export const Route = createFileRoute("/countries/$countrySlug")({
     return country;
   },
   head: ({ loaderData }) => {
-    const title = loaderData ? `${loaderData.title} | EDUNAVYX` : "Country Not Found | EDUNAVYX";
-    const description = loaderData?.intro ?? "Explore study-abroad destinations with EDUNAVYX.";
+    const title = loaderData
+      ? `Study in ${loaderData.name} | Universities & Admissions | Edunavyx`
+      : "Destination Not Found | Edunavyx";
+    const description = loaderData
+      ? `Plan your higher studies in ${loaderData.name}. Discover top universities, degrees, scholarships, and admissions with expert study-abroad guidance from Edunavyx.`
+      : "Explore study-abroad destinations and global university admissions with Edunavyx.";
+    const canonicalUrl = loaderData
+      ? `https://edunavyx.com/countries/${loaderData.slug}`
+      : "https://edunavyx.com/";
+    const ogImage = loaderData?.monument || "https://edunavyx.com/og-image.png";
+
+    const countrySchema = loaderData
+      ? {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": `${canonicalUrl}#webpage`,
+              url: canonicalUrl,
+              name: title,
+              description,
+              isPartOf: { "@id": "https://edunavyx.com/#website" },
+              about: { "@id": "https://edunavyx.com/#organization" },
+              breadcrumb: {
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  {
+                    "@type": "ListItem",
+                    position: 1,
+                    name: "Home",
+                    item: "https://edunavyx.com/",
+                  },
+                  {
+                    "@type": "ListItem",
+                    position: 2,
+                    name: "Destinations",
+                    item: "https://edunavyx.com/#destinations",
+                  },
+                  {
+                    "@type": "ListItem",
+                    position: 3,
+                    name: loaderData.name,
+                    item: canonicalUrl,
+                  },
+                ],
+              },
+            },
+          ],
+        }
+      : null;
+
     return {
       meta: [
         { title },
         { name: "description", content: description },
+        { property: "og:site_name", content: "Edunavyx" },
         { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:type", content: "website" },
+        { property: "og:url", content: canonicalUrl },
+        { property: "og:image", content: ogImage },
         { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: description },
+        { name: "twitter:image", content: ogImage },
       ],
+      links: [
+        { rel: "canonical", href: canonicalUrl },
+      ],
+      scripts: countrySchema
+        ? [
+            {
+              type: "application/ld+json",
+              children: JSON.stringify(countrySchema),
+            },
+          ]
+        : [],
     };
   },
   component: CountryDetailPage,

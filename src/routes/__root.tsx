@@ -72,18 +72,94 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
+const organizationAndWebsiteSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "EducationalOrganization",
+      "@id": "https://edunavyx.com/#organization",
+      "name": "Edunavyx",
+      "legalName": "Edunavyx",
+      "url": "https://edunavyx.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://edunavyx.com/#logo",
+        "url": "https://edunavyx.com/edunavyx-logo.png",
+        "contentUrl": "https://edunavyx.com/edunavyx-logo.png",
+        "caption": "Edunavyx Logo",
+      },
+      "image": "https://edunavyx.com/og-image.png",
+      "description":
+        "Empowering students with personalised career discovery, comprehensive test preparation, and expert global university admissions.",
+      "email": "admissions@edunavyx.com",
+      "telephone": "+918796556462",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "A 60, Delta 2",
+        "addressLocality": "Greater Noida",
+        "addressCountry": "IN",
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+918796556462",
+          "contactType": "customer service",
+          "email": "admissions@edunavyx.com",
+          "availableLanguage": ["English", "Hindi"],
+        },
+      ],
+      "sameAs": [
+        "https://wa.me/918796556462",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://edunavyx.com/#website",
+      "url": "https://edunavyx.com/",
+      "name": "Edunavyx",
+      "description": "Global Education & Study Abroad Consultants",
+      "publisher": {
+        "@id": "https://edunavyx.com/#organization",
+      },
+      "inLanguage": "en",
+    },
+  ],
+};
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "EDUNAVYX | Global Education Experts" },
-      { name: "description", content: "Build your global education journey with EDUNAVYX." },
-      { name: "author", content: "EDUNAVYX" },
-      { property: "og:title", content: "EDUNAVYX | Global Education Experts" },
-      { property: "og:description", content: "Build your global education journey with EDUNAVYX." },
+      { title: "Edunavyx | Global Education & Study Abroad Consultants" },
+      {
+        name: "description",
+        content:
+          "Empowering students with personalised career discovery, profile building, test prep (SAT, CUET, IELTS), and expert global university admissions guidance.",
+      },
+      { name: "author", content: "Edunavyx" },
+      { property: "og:site_name", content: "Edunavyx" },
+      { property: "og:title", content: "Edunavyx | Global Education & Study Abroad Consultants" },
+      {
+        property: "og:description",
+        content:
+          "Empowering students with personalised career discovery, profile building, test prep (SAT, CUET, IELTS), and expert global university admissions guidance.",
+      },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://edunavyx.com/" },
+      { property: "og:image", content: "https://edunavyx.com/og-image.png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "Edunavyx - Global Education & Study Abroad Consultants" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Edunavyx | Global Education & Study Abroad Consultants" },
+      {
+        name: "twitter:description",
+        content:
+          "Empowering students with personalised career discovery, profile building, test prep (SAT, CUET, IELTS), and expert global university admissions guidance.",
+      },
+      { name: "twitter:image", content: "https://edunavyx.com/og-image.png" },
+      { name: "twitter:image:alt", content: "Edunavyx - Global Education & Study Abroad Consultants" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -96,7 +172,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
+      { rel: "icon", href: "/favicon.ico", sizes: "32x32" },
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+      { rel: "icon", href: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { rel: "icon", href: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png", sizes: "180x180" },
+      { rel: "manifest", href: "/site.webmanifest" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(organizationAndWebsiteSchema),
+      },
     ],
   }),
   shellComponent: RootShell,

@@ -31,20 +31,94 @@ export const Route = createFileRoute("/test-preparation/$testSlug")({
   },
   head: ({ loaderData }) => {
     const title = loaderData
-      ? `${loaderData.title} Preparation | EDUNAVYX`
-      : "Test Preparation | EDUNAVYX";
-    const description =
-      loaderData?.heroSummary ??
-      "Structured and focused test preparation with EDUNAVYX to achieve your target university admission scores.";
+      ? `${loaderData.shortTitle || loaderData.title} Coaching & Prep | Edunavyx`
+      : "Test Preparation | Edunavyx";
+    const description = loaderData
+      ? loaderData.id === "sat"
+        ? "Master the Digital SAT with Edunavyx: personalized strategy drills, adaptive practice, and high-yield content prep for top global university admissions."
+        : loaderData.id === "ielts"
+          ? "Comprehensive IELTS coaching across Listening, Reading, Writing, and Speaking with personalized feedback to achieve your target university band score."
+          : "Structured preparation for CUET-UG and entrance exams, combining subject mastery, mock testing, and strategy for top Indian university admissions."
+      : "Structured and focused test preparation with Edunavyx to achieve your target university admission scores.";
+    const canonicalUrl = loaderData
+      ? `https://edunavyx.com/test-preparation/${loaderData.id}`
+      : "https://edunavyx.com/";
+    const ogImage = "https://edunavyx.com/og-image.png";
+
+    const testSchema = loaderData
+      ? {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Course",
+              "@id": `${canonicalUrl}#course`,
+              name: `${loaderData.title} Preparation`,
+              description: loaderData.heroSummary || loaderData.conciseDescription,
+              provider: { "@id": "https://edunavyx.com/#organization" },
+              url: canonicalUrl,
+            },
+            {
+              "@type": "WebPage",
+              "@id": `${canonicalUrl}#webpage`,
+              url: canonicalUrl,
+              name: title,
+              description,
+              isPartOf: { "@id": "https://edunavyx.com/#website" },
+              about: { "@id": "https://edunavyx.com/#organization" },
+              breadcrumb: {
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  {
+                    "@type": "ListItem",
+                    position: 1,
+                    name: "Home",
+                    item: "https://edunavyx.com/",
+                  },
+                  {
+                    "@type": "ListItem",
+                    position: 2,
+                    name: "Test Preparation",
+                    item: "https://edunavyx.com/#test-preparation",
+                  },
+                  {
+                    "@type": "ListItem",
+                    position: 3,
+                    name: loaderData.shortTitle || loaderData.title,
+                    item: canonicalUrl,
+                  },
+                ],
+              },
+            },
+          ],
+        }
+      : null;
+
     return {
       meta: [
         { title },
         { name: "description", content: description },
+        { property: "og:site_name", content: "Edunavyx" },
         { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:type", content: "website" },
+        { property: "og:url", content: canonicalUrl },
+        { property: "og:image", content: ogImage },
         { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: description },
+        { name: "twitter:image", content: ogImage },
       ],
+      links: [
+        { rel: "canonical", href: canonicalUrl },
+      ],
+      scripts: testSchema
+        ? [
+            {
+              type: "application/ld+json",
+              children: JSON.stringify(testSchema),
+            },
+          ]
+        : [],
     };
   },
   component: TestPrepDetailPage,
