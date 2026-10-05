@@ -55,13 +55,6 @@ export interface UniversityPartner {
   featured?: boolean;
 }
 
-export interface DestinationInstitute {
-  id: string;
-  name: string;
-  src: string;
-  rank?: string;
-}
-
 const officialLogos: Record<string, { src: string; name: string }> = {
   edinburgh: { src: edinburghLogo, name: "The University of Edinburgh" },
   johnshopkins: { src: johnshopkinsLogo, name: "Johns Hopkins University" },
@@ -289,70 +282,10 @@ export const universityThemes: Record<string, UniversityTheme> = {
   },
 };
 
-// Destination Page - Top Institutes by Country with official logos
-export const countryInstitutionsData: Record<string, DestinationInstitute[]> = {
-  canada: [
-    { id: "toronto", name: "University of Toronto", src: torontoLogo, rank: "QS #25" },
-    { id: "mcgill", name: "McGill University", src: mcgillLogo, rank: "QS #29" },
-    { id: "ubc", name: "University of British Columbia", src: ubcLogo, rank: "QS #38" },
-    { id: "alberta", name: "University of Alberta", src: albertaLogo, rank: "QS #96" },
-    { id: "waterloo", name: "University of Waterloo", src: waterlooLogo, rank: "QS #112" },
-  ],
-  usa: [
-    { id: "harvard", name: "Harvard University", src: harvardLogo, rank: "QS #4" },
-    { id: "stanford", name: "Stanford University", src: stanfordLogo, rank: "QS #5" },
-    { id: "mit", name: "MIT", src: mitLogo, rank: "QS #1" },
-    { id: "columbia", name: "Columbia University", src: columbiaLogo, rank: "QS #34" },
-    { id: "berkeley", name: "UC Berkeley", src: berkeleyLogo, rank: "QS #12" },
-    { id: "ucla", name: "UCLA", src: uclaLogo, rank: "QS #29" },
-    { id: "nyu", name: "New York University", src: nyuLogo, rank: "QS #38" },
-    { id: "johnshopkins", name: "Johns Hopkins University", src: johnshopkinsLogo, rank: "QS #28" },
-  ],
-  uk: [
-    { id: "oxford", name: "University of Oxford", src: oxfordLogo, rank: "QS #3" },
-    { id: "cambridge", name: "University of Cambridge", src: cambridgeLogo, rank: "QS #2" },
-    { id: "imperial", name: "Imperial College London", src: imperialLogo, rank: "QS #6" },
-    { id: "ucl", name: "UCL", src: uclLogo, rank: "QS #9" },
-    { id: "edinburgh", name: "The University of Edinburgh", src: edinburghLogo, rank: "QS #27" },
-    { id: "kings", name: "King's College London", src: kingsLogo, rank: "QS #40" },
-    { id: "manchester", name: "The University of Manchester", src: manchesterLogo, rank: "QS #32" },
-    { id: "bristol", name: "University of Bristol", src: bristolLogo, rank: "QS #54" },
-  ],
-  australia: [
-    { id: "melbourne", name: "The University of Melbourne", src: melbourneLogo, rank: "QS #13" },
-    { id: "sydney", name: "The University of Sydney", src: sydneyLogo, rank: "QS #18" },
-    { id: "unsw", name: "UNSW Sydney", src: unswLogo, rank: "QS #19" },
-    { id: "anu", name: "Australian National University", src: anuLogo, rank: "QS #30" },
-    { id: "monash", name: "Monash University", src: monashLogo, rank: "QS #37" },
-    { id: "queensland", name: "The University of Queensland", src: queenslandLogo, rank: "QS #40" },
-    { id: "uwa", name: "The University of Western Australia", src: uwaLogo, rank: "QS #72" },
-  ],
-  "new-zealand": [
-    { id: "auckland", name: "The University of Auckland", src: aucklandLogo, rank: "QS #65" },
-    { id: "otago", name: "University of Otago", src: otagoLogo, rank: "QS #214" },
-  ],
-  singapore: [
-    { id: "nus", name: "National University of Singapore", src: nusLogo, rank: "QS #8" },
-    { id: "ntu", name: "Nanyang Technological University", src: ntuLogo, rank: "QS #15" },
-  ],
-  ireland: [
-    { id: "trinity", name: "Trinity College Dublin", src: trinityLogo, rank: "QS #81" },
-    { id: "ucd", name: "University College Dublin", src: ucdLogo, rank: "QS #171" },
-  ],
-  germany: [
-    { id: "tum", name: "Technical University of Munich", src: tumLogo, rank: "QS #28" },
-    { id: "lmu", name: "LMU Munich", src: lmuLogo, rank: "QS #54" },
-  ],
-  france: [
-    { id: "sorbonne", name: "Sorbonne Université", src: sorbonneLogo, rank: "QS #59" },
-    { id: "polytechnique", name: "École Polytechnique", src: polytechniqueLogo, rank: "QS #38" },
-  ],
-  netherlands: [
-    { id: "amsterdam", name: "University of Amsterdam", src: amsterdamLogo, rank: "QS #53" },
-    { id: "tudelft", name: "TU Delft", src: tudelftLogo, rank: "QS #47" },
-  ],
-};
+// Destination Page - Top Universities by Country with official logos
+export {
+  type DestinationInstitute,
+  countryInstitutionsData,
+  getInstitutionsForCountry,
+} from "@/lib/country-universities";
 
-export function getInstitutionsForCountry(slug: string): DestinationInstitute[] {
-  return countryInstitutionsData[slug] || [];
-}

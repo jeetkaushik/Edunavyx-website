@@ -188,12 +188,12 @@ function CountryDetailPage() {
           </div>
         </section>
 
-        {/* UNIVERSITIES & INSTITUTIONS SECTION */}
+        {/* TOP UNIVERSITIES SECTION */}
         <section className="section country-institutions-section">
           <div className="container">
             <div className="service-section-heading">
-              <span className="eyebrow">UNIVERSITIES & INSTITUTIONS</span>
-              <h2>Top Institutions in {country.name}</h2>
+              <span className="eyebrow">TOP UNIVERSITIES</span>
+              <h2>Top Universities in {country.name}</h2>
               <p>{country.institutionsLead}</p>
             </div>
             <div className="country-institutions-grid">
