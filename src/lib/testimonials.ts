@@ -38,16 +38,6 @@ export const studentTestimonials: TestimonialItem[] = [
       "Edunavyx made my journey structured and stress-free. The team understood my academic interests and career goals and guided me through university selection, applications, admission requirements, and the visa process. Their personalised support and attention to detail gave me confidence at every step. I’m grateful to Edunavyx for helping me pursue my BSc in Engineering at the University of Washington. I would highly recommend them to students seeking genuine and personalised guidance for studying abroad."
   },
   {
-    id: "saloni-gupta",
-    name: "Saloni Gupta",
-    programme: "Master’s in Publishing",
-    university: "University College London",
-    image: saloniImg,
-    imagePosition: "center 20%",
-    quote:
-      "I applied to universities across the UK and Ireland for my Master’s in Publishing, and with the guidance of Edunavyx, I was able to secure admission to University College London. From university applications and resume writing to SOP editing and refining my overall profile, the team supported me throughout. Their constant availability and structured advice made the entire application journey organized, stress-free, and successful.",
-  },
-  {
     id: "navya-gupta",
     name: "Navya Gupta",
     programme: "BBA",
