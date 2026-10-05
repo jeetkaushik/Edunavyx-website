@@ -90,7 +90,7 @@ const organizationAndWebsiteSchema = {
       },
       "image": "https://edunavyx.com/og-image.png",
       "description":
-        "Empowering students with personalised career discovery, comprehensive test preparation, and expert global university admissions.",
+        "Explore career paths, courses, universities, scholarships and global opportunities with EDUNAVYX. Get personalized career and education guidance for your future.",
       "email": "admissions@edunavyx.com",
       "telephone": "+918796556462",
       "address": {
@@ -117,7 +117,7 @@ const organizationAndWebsiteSchema = {
       "@id": "https://edunavyx.com/#website",
       "url": "https://edunavyx.com/",
       "name": "Edunavyx",
-      "description": "Global Education & Study Abroad Consultants",
+      "description": "Global Education & Career Consultants",
       "publisher": {
         "@id": "https://edunavyx.com/#organization",
       },
@@ -131,35 +131,35 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Edunavyx | Global Education & Study Abroad Consultants" },
+      { title: "EDUNAVYX | Career Guidance, Education & Global Opportunities" },
       {
         name: "description",
         content:
-          "Empowering students with personalised career discovery, profile building, test prep (SAT, CUET, IELTS), and expert global university admissions guidance.",
+          "Explore career paths, courses, universities, scholarships and global opportunities with EDUNAVYX. Get personalized career and education guidance for your future.",
       },
       { name: "author", content: "Edunavyx" },
       { property: "og:site_name", content: "Edunavyx" },
-      { property: "og:title", content: "Edunavyx | Global Education & Study Abroad Consultants" },
+      { property: "og:title", content: "EDUNAVYX | Career Guidance, Education & Global Opportunities" },
       {
         property: "og:description",
         content:
-          "Empowering students with personalised career discovery, profile building, test prep (SAT, CUET, IELTS), and expert global university admissions guidance.",
+          "Explore career paths, courses, universities, scholarships and global opportunities with EDUNAVYX. Get personalized career and education guidance for your future.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://edunavyx.com/" },
       { property: "og:image", content: "https://edunavyx.com/og-image.png" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { property: "og:image:alt", content: "Edunavyx - Global Education & Study Abroad Consultants" },
+      { property: "og:image:alt", content: "EDUNAVYX - Career Guidance, Education & Global Opportunities" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Edunavyx | Global Education & Study Abroad Consultants" },
+      { name: "twitter:title", content: "EDUNAVYX | Career Guidance, Education & Global Opportunities" },
       {
         name: "twitter:description",
         content:
-          "Empowering students with personalised career discovery, profile building, test prep (SAT, CUET, IELTS), and expert global university admissions guidance.",
+          "Explore career paths, courses, universities, scholarships and global opportunities with EDUNAVYX. Get personalized career and education guidance for your future.",
       },
       { name: "twitter:image", content: "https://edunavyx.com/og-image.png" },
-      { name: "twitter:image:alt", content: "Edunavyx - Global Education & Study Abroad Consultants" },
+      { name: "twitter:image:alt", content: "EDUNAVYX - Career Guidance, Education & Global Opportunities" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -172,8 +172,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", sizes: "32x32" },
+      { rel: "icon", href: "/favicon.ico", sizes: "48x48" },
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+      { rel: "icon", href: "/favicon-48x48.png", type: "image/png", sizes: "48x48" },
+      { rel: "icon", href: "/favicon-96x96.png", type: "image/png", sizes: "96x96" },
       { rel: "icon", href: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
       { rel: "icon", href: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png", sizes: "180x180" },

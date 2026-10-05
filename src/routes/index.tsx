@@ -71,9 +71,9 @@ const homeWebPageSchema = {
   "@type": "WebPage",
   "@id": "https://edunavyx.com/#webpage",
   url: "https://edunavyx.com/",
-  name: "Edunavyx | Global Education & Carrer Consultants",
+  name: "EDUNAVYX | Career Guidance, Education & Global Opportunities",
   description:
-    "Empowering students with personalised career discovery, profile building, test prep (SAT, CUET, IELTS), and expert global university admissions guidance.",
+    "Explore career paths, courses, universities, scholarships and global opportunities with EDUNAVYX. Get personalized career and education guidance for your future.",
   isPartOf: { "@id": "https://edunavyx.com/#website" },
   about: { "@id": "https://edunavyx.com/#organization" },
   inLanguage: "en",
@@ -82,34 +82,34 @@ const homeWebPageSchema = {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Edunavyx | Global Education & Carrer Consultants" },
+      { title: "EDUNAVYX | Career Guidance, Education & Global Opportunities" },
       {
         name: "description",
         content:
-          "Empowering students with personalised career discovery, profile building, test prep (SAT, CUET, IELTS), and expert global university admissions guidance.",
+          "Explore career paths, courses, universities, scholarships and global opportunities with EDUNAVYX. Get personalized career and education guidance for your future.",
       },
       { property: "og:site_name", content: "Edunavyx" },
-      { property: "og:title", content: "Edunavyx | Global Education & Carrer Consultants" },
+      { property: "og:title", content: "EDUNAVYX | Career Guidance, Education & Global Opportunities" },
       {
         property: "og:description",
         content:
-          "Empowering students with personalised career discovery, profile building, test prep (SAT, CUET, IELTS), and expert global university admissions guidance.",
+          "Explore career paths, courses, universities, scholarships and global opportunities with EDUNAVYX. Get personalized career and education guidance for your future.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://edunavyx.com/" },
       { property: "og:image", content: "https://edunavyx.com/edunavyx-logo.png" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { property: "og:image:alt", content: "Edunavyx - Global Education & Carrer Consultants" },
+      { property: "og:image:alt", content: "EDUNAVYX - Career Guidance, Education & Global Opportunities" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Edunavyx | Global Education & Carrer Consultants" },
+      { name: "twitter:title", content: "EDUNAVYX | Career Guidance, Education & Global Opportunities" },
       {
         name: "twitter:description",
         content:
-          "Empowering students with personalised career discovery, profile building, test prep (SAT, CUET, IELTS), and expert global university admissions guidance.",
+          "Explore career paths, courses, universities, scholarships and global opportunities with EDUNAVYX. Get personalized career and education guidance for your future.",
       },
       { name: "twitter:image", content: "https://edunavyx.com/og-image.png" },
-      { name: "twitter:image:alt", content: "Edunavyx - Global Education & Carrer Consultants" },
+      { name: "twitter:image:alt", content: "EDUNAVYX - Career Guidance, Education & Global Opportunities" },
     ],
     links: [
       { rel: "canonical", href: "https://edunavyx.com/" },

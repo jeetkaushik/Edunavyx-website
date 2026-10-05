@@ -15,11 +15,11 @@ export const Route = createFileRoute("/services/$serviceSlug")({
   },
   head: ({ loaderData }) => {
     const title = loaderData
-      ? `${loaderData.title} | Study Abroad Guidance | Edunavyx`
+      ? `${loaderData.title} | Career Guidance | Edunavyx`
       : "Service Not Found | Edunavyx";
     const description = loaderData
-      ? `${loaderData.cardPreview || loaderData.summary} Study-abroad guidance by Edunavyx.`
-      : "Explore personalized study-abroad guidance, university admissions, and test preparation services from Edunavyx.";
+      ? `${loaderData.cardPreview || loaderData.summary} Career guidance by Edunavyx.`
+      : "Explore personalized career guidance, university admissions, and test preparation services from Edunavyx.";
     const canonicalUrl = loaderData
       ? `https://edunavyx.com/services/${loaderData.slug}`
       : "https://edunavyx.com/";

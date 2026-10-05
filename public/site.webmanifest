@@ -1,7 +1,18 @@
 {
-  "name": "Edunavyx | Global Education & Study Abroad Consultants",
-  "short_name": "Edunavyx",
+  "name": "EDUNAVYX | Career Guidance, Education & Global Opportunities",
+  "short_name": "EDUNAVYX",
+  "description": "Explore career paths, courses, universities, scholarships and global opportunities with EDUNAVYX. Get personalized career and education guidance for your future.",
   "icons": [
+    {
+      "src": "/favicon-48x48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
     {
       "src": "/android-chrome-192x192.png",
       "sizes": "192x192",

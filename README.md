@@ -1125,11 +1125,11 @@ Implement strong SEO foundations.
 
 Homepage title:
 
-EDUNAVYX | Study Abroad Consultants & Global Education Experts
+EDUNAVYX | Career Guidance, Education & Global Opportunities
 
 Meta description:
 
-Explore universities, countries, scholarships and study-abroad opportunities with EDUNAVYX. Get personalized guidance for your global education journey.
+Explore career paths, courses, universities, scholarships and global opportunities with EDUNAVYX. Get personalized career and education guidance for your future.
 
 Use semantic HTML.
 
