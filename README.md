@@ -1125,11 +1125,11 @@ Implement strong SEO foundations.
 
 Homepage title:
 
-EDUNAVYX | Career Guidance, Education & Global Opportunities
+EDUNAVYX | Carrer Consultants & Global Education Experts
 
 Meta description:
 
-Explore career paths, courses, universities, scholarships and global opportunities with EDUNAVYX. Get personalized career and education guidance for your future.
+Explore universities, countries, scholarships and study-abroad opportunities with EDUNAVYX. Get personalized guidance for your global education journey.
 
 Use semantic HTML.
 

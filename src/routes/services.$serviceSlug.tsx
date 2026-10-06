@@ -26,56 +26,56 @@ export const Route = createFileRoute("/services/$serviceSlug")({
     const ogImage =
       typeof loaderData?.image === "string" && loaderData.image.startsWith("http")
         ? loaderData.image
-        : "https://edunavyx.com/og-image.png";
+        : "https://edunavyx.com/";
 
     const serviceSchema = loaderData
       ? {
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "Service",
-              "@id": `${canonicalUrl}#service`,
-              name: loaderData.title,
-              description: loaderData.introduction || loaderData.summary,
-              provider: { "@id": "https://edunavyx.com/#organization" },
-              serviceType: "Educational Consulting",
-              areaServed: "Worldwide",
-              url: canonicalUrl,
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Service",
+            "@id": `${canonicalUrl}#service`,
+            name: loaderData.title,
+            description: loaderData.introduction || loaderData.summary,
+            provider: { "@id": "https://edunavyx.com/#organization" },
+            serviceType: "Educational Consulting",
+            areaServed: "Worldwide",
+            url: canonicalUrl,
+          },
+          {
+            "@type": "WebPage",
+            "@id": `${canonicalUrl}#webpage`,
+            url: canonicalUrl,
+            name: title,
+            description,
+            isPartOf: { "@id": "https://edunavyx.com/#website" },
+            about: { "@id": "https://edunavyx.com/#organization" },
+            breadcrumb: {
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://edunavyx.com/",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Services",
+                  item: "https://edunavyx.com/#our-expertise",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 3,
+                  name: loaderData.title,
+                  item: canonicalUrl,
+                },
+              ],
             },
-            {
-              "@type": "WebPage",
-              "@id": `${canonicalUrl}#webpage`,
-              url: canonicalUrl,
-              name: title,
-              description,
-              isPartOf: { "@id": "https://edunavyx.com/#website" },
-              about: { "@id": "https://edunavyx.com/#organization" },
-              breadcrumb: {
-                "@type": "BreadcrumbList",
-                itemListElement: [
-                  {
-                    "@type": "ListItem",
-                    position: 1,
-                    name: "Home",
-                    item: "https://edunavyx.com/",
-                  },
-                  {
-                    "@type": "ListItem",
-                    position: 2,
-                    name: "Services",
-                    item: "https://edunavyx.com/#our-expertise",
-                  },
-                  {
-                    "@type": "ListItem",
-                    position: 3,
-                    name: loaderData.title,
-                    item: canonicalUrl,
-                  },
-                ],
-              },
-            },
-          ],
-        }
+          },
+        ],
+      }
       : null;
 
     return {
@@ -98,11 +98,11 @@ export const Route = createFileRoute("/services/$serviceSlug")({
       ],
       scripts: serviceSchema
         ? [
-            {
-              type: "application/ld+json",
-              children: JSON.stringify(serviceSchema),
-            },
-          ]
+          {
+            type: "application/ld+json",
+            children: JSON.stringify(serviceSchema),
+          },
+        ]
         : [],
     };
   },
