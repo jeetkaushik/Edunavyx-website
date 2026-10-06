@@ -2458,6 +2458,15 @@ function HomePage() {
                 >
                   Facebook
                 </a>
+                <a
+                  href="https://www.linkedin.com/company/edunavyx/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-social-tag"
+                  title="LinkedIn"
+                >
+                  LinkedIn
+                </a>
               </div>
             </div>
           </div>
