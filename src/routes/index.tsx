@@ -2440,11 +2440,24 @@ function HomePage() {
             <div className="footer-socials-block">
               <span className="footer-social-label">Follow Us</span>
               <div className="footer-social-links">
-                {["Instagram", "LinkedIn", "YouTube", "Facebook", "X"].map((item) => (
-                  <a key={item} href="#top" className="footer-social-tag" title={item}>
-                    {item}
-                  </a>
-                ))}
+                <a
+                  href="https://www.instagram.com/edunavyx_?stkn=eDlhZ3JkMTdvaXJm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-social-tag"
+                  title="Instagram"
+                >
+                  Instagram
+                </a>
+                <a
+                  href="https://www.facebook.com/profile.php?id=61594291726044"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-social-tag"
+                  title="Facebook"
+                >
+                  Facebook
+                </a>
               </div>
             </div>
           </div>

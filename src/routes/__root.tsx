@@ -110,6 +110,8 @@ const organizationAndWebsiteSchema = {
       ],
       "sameAs": [
         "https://wa.me/918796556462",
+        "https://www.instagram.com/edunavyx_?stkn=eDlhZ3JkMTdvaXJm",
+        "https://www.facebook.com/profile.php?id=61594291726044",
       ],
     },
     {
