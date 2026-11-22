@@ -99,8 +99,8 @@ export const Route = createFileRoute("/countries/$countrySlug")({
 
 function CountryLogo() {
   return (
-    <Link to="/" className="brand-logo" aria-label="EDUNAVYX home">
-      <img src={logoImage} alt="EDUNAVYX" className="brand-logo-img" width={651} height={196} />
+    <Link to="/" className="brand-logo" aria-label="Edunavyx home">
+      <img src={logoImage} alt="Edunavyx" className="brand-logo-img" width={651} height={196} />
     </Link>
   );
 }
@@ -239,7 +239,7 @@ function CountryDetailPage() {
             <Headphones />
             <span className="eyebrow">YOUR NEXT STEP</span>
             <h2>Let’s plan your {country.name} application.</h2>
-            <p>Speak with an EDUNAVYX counsellor for university shortlisting, scholarships and visa guidance.</p>
+            <p>Speak with an Edunavyx counsellor for university shortlisting, scholarships and visa guidance.</p>
             <Button size="lg" asChild className="service-detail-cta-btn">
               <Link to="/" hash="contact">
                 Book Your Free Consultation <ArrowRight />

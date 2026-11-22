@@ -127,8 +127,8 @@ export const Route = createFileRoute("/test-preparation/$testSlug")({
 
 function HeaderLogo() {
   return (
-    <Link to="/" className="brand-logo" aria-label="EDUNAVYX home">
-      <img src={logoImage} alt="EDUNAVYX" className="brand-logo-img" width={651} height={196} />
+    <Link to="/" className="brand-logo" aria-label="Edunavyx home">
+      <img src={logoImage} alt="Edunavyx" className="brand-logo-img" width={651} height={196} />
     </Link>
   );
 }

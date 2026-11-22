@@ -119,6 +119,7 @@ const organizationAndWebsiteSchema = {
       "@id": "https://edunavyx.com/#website",
       "url": "https://edunavyx.com/",
       "name": "Edunavyx",
+      "alternateName": ["EDUNAVYX", "Edunavyx Global", "Edunavyx Global Pathways"],
       "description": "Global Education & Career Consultants",
       "publisher": {
         "@id": "https://edunavyx.com/#organization",
@@ -133,35 +134,35 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "EDUNAVYX | Career Consultants & Global Education Experts" },
+      { title: "Edunavyx | Career Consultants & Global Education Experts" },
       {
         name: "description",
         content:
-          "Explore career paths, courses, universities, scholarships and global opportunities with EDUNAVYX. Get personalized career and education guidance for your future.",
+          "Explore career paths, courses, universities, scholarships and global opportunities with Edunavyx. Get personalized career and education guidance for your future.",
       },
       { name: "author", content: "Edunavyx" },
       { property: "og:site_name", content: "Edunavyx" },
-      { property: "og:title", content: "EDUNAVYX | Career Consultants & Global Education Experts" },
+      { property: "og:title", content: "Edunavyx | Career Consultants & Global Education Experts" },
       {
         property: "og:description",
         content:
-          "Explore career paths, courses, universities, scholarships and global opportunities with EDUNAVYX. Get personalized career and education guidance for your future.",
+          "Explore career paths, courses, universities, scholarships and global opportunities with Edunavyx. Get personalized career and education guidance for your future.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://edunavyx.com/" },
       { property: "og:image", content: "https://edunavyx.com/og-image.png" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { property: "og:image:alt", content: "EDUNAVYX - Career Consultants & Global Education Experts" },
+      { property: "og:image:alt", content: "Edunavyx - Career Consultants & Global Education Experts" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "EDUNAVYX | Career Consultants & Global Education Experts" },
+      { name: "twitter:title", content: "Edunavyx | Career Consultants & Global Education Experts" },
       {
         name: "twitter:description",
         content:
-          "Explore career paths, courses, universities, scholarships and global opportunities with EDUNAVYX. Get personalized career and education guidance for your future.",
+          "Explore career paths, courses, universities, scholarships and global opportunities with Edunavyx. Get personalized career and education guidance for your future.",
       },
       { name: "twitter:image", content: "https://edunavyx.com/og-image.png" },
-      { name: "twitter:image:alt", content: "EDUNAVYX - Career Consultants & Global Education Experts" },
+      { name: "twitter:image:alt", content: "Edunavyx - Career Consultants & Global Education Experts" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -185,6 +186,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "manifest", href: "/site.webmanifest" },
     ],
     scripts: [
+      {
+        async: true,
+        src: "https://www.googletagmanager.com/gtm.js?id=GTM-TW37MTJP",
+      },
+      {
+        children: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());`,
+      },
       {
         type: "application/ld+json",
         children: JSON.stringify(organizationAndWebsiteSchema),

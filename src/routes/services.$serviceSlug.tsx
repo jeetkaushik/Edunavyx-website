@@ -112,8 +112,8 @@ export const Route = createFileRoute("/services/$serviceSlug")({
 
 function ServiceLogo() {
   return (
-    <Link to="/" className="brand-logo" aria-label="EDUNAVYX home">
-      <img src={logoImage} alt="EDUNAVYX" className="brand-logo-img" width={651} height={196} />
+    <Link to="/" className="brand-logo" aria-label="Edunavyx home">
+      <img src={logoImage} alt="Edunavyx" className="brand-logo-img" width={651} height={196} />
     </Link>
   );
 }
@@ -187,7 +187,7 @@ function ServiceDetailPage() {
           </div>
         </section>
 
-        <section className="service-detail-cta"><div className="container"><Headphones /><span className="eyebrow">YOUR NEXT STEP</span><h2>Let’s make your study-abroad plan happen.</h2><p>Speak with an EDUNAVYX counsellor and get guidance tailored to your journey.</p><Button size="lg" asChild><Link to="/" hash="contact">Book Your Free Consultation <ArrowRight /></Link></Button></div></section>
+        <section className="service-detail-cta"><div className="container"><Headphones /><span className="eyebrow">YOUR NEXT STEP</span><h2>Let’s make your study-abroad plan happen.</h2><p>Speak with an Edunavyx counsellor and get guidance tailored to your journey.</p><Button size="lg" asChild><Link to="/" hash="contact">Book Your Free Consultation <ArrowRight /></Link></Button></div></section>
       </main>
     </div>
   );

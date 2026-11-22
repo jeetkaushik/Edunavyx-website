@@ -68,48 +68,62 @@ import {
 
 const homeWebPageSchema = {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  "@id": "https://edunavyx.com/#webpage",
-  url: "https://edunavyx.com/",
-  name: "EDUNAVYX | Career Consultants & Global Education Experts",
-  description:
-    "Explore career paths, courses, universities, scholarships and global opportunities with EDUNAVYX. Get personalized career and education guidance for your future.",
-  isPartOf: { "@id": "https://edunavyx.com/#website" },
-  about: { "@id": "https://edunavyx.com/#organization" },
-  inLanguage: "en",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://edunavyx.com/#website",
+      "url": "https://edunavyx.com/",
+      "name": "Edunavyx",
+      "alternateName": ["EDUNAVYX", "Edunavyx Global", "Edunavyx Global Pathways"],
+      "description": "Global Education & Career Consultants",
+      "publisher": { "@id": "https://edunavyx.com/#organization" },
+      "inLanguage": "en",
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://edunavyx.com/#webpage",
+      "url": "https://edunavyx.com/",
+      "name": "Edunavyx | Career Consultants & Global Education Experts",
+      "description":
+        "Explore career paths, courses, universities, scholarships and global opportunities with Edunavyx. Get personalized career and education guidance for your future.",
+      "isPartOf": { "@id": "https://edunavyx.com/#website" },
+      "about": { "@id": "https://edunavyx.com/#organization" },
+      "inLanguage": "en",
+    },
+  ],
 };
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "EDUNAVYX | Career Consultants & Global Education Experts" },
+      { title: "Edunavyx | Career Consultants & Global Education Experts" },
       {
         name: "description",
         content:
-          "Explore career paths, courses, universities, scholarships and global opportunities with EDUNAVYX. Get personalized career and education guidance for your future.",
+          "Explore career paths, courses, universities, scholarships and global opportunities with Edunavyx. Get personalized career and education guidance for your future.",
       },
       { property: "og:site_name", content: "Edunavyx" },
-      { property: "og:title", content: "EDUNAVYX | Career Consultants & Global Education Experts" },
+      { property: "og:title", content: "Edunavyx | Career Consultants & Global Education Experts" },
       {
         property: "og:description",
         content:
-          "Explore career paths, courses, universities, scholarships and global opportunities with EDUNAVYX. Get personalized career and education guidance for your future.",
+          "Explore career paths, courses, universities, scholarships and global opportunities with Edunavyx. Get personalized career and education guidance for your future.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://edunavyx.com/" },
       { property: "og:image", content: "https://edunavyx.com/edunavyx-logo.png" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { property: "og:image:alt", content: "EDUNAVYX - Career Consultants & Global Education Experts" },
+      { property: "og:image:alt", content: "Edunavyx - Career Consultants & Global Education Experts" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "EDUNAVYX | Career Consultants & Global Education Experts" },
+      { name: "twitter:title", content: "Edunavyx | Career Consultants & Global Education Experts" },
       {
         name: "twitter:description",
         content:
-          "Explore career paths, courses, universities, scholarships and global opportunities with EDUNAVYX. Get personalized career and education guidance for your future.",
+          "Explore career paths, courses, universities, scholarships and global opportunities with Edunavyx. Get personalized career and education guidance for your future.",
       },
       { name: "twitter:image", content: "https://edunavyx.com/og-image.png" },
-      { name: "twitter:image:alt", content: "EDUNAVYX - Career Consultants & Global Education Experts" },
+      { name: "twitter:image:alt", content: "Edunavyx - Career Consultants & Global Education Experts" },
     ],
     links: [
       { rel: "canonical", href: "https://edunavyx.com/" },
@@ -227,9 +241,9 @@ function Logo({ inverse = false }: { inverse?: boolean }) {
     <a
       href="#top"
       className={`brand-logo ${inverse ? "brand-logo-inverse" : ""}`}
-      aria-label="EDUNAVYX home"
+      aria-label="Edunavyx home"
     >
-      <img src={logoImage} alt="EDUNAVYX" className="brand-logo-img" width={800} height={196} />
+      <img src={logoImage} alt="Edunavyx" className="brand-logo-img" width={800} height={196} />
     </a>
   );
 }
@@ -2473,7 +2487,7 @@ function HomePage() {
         </div>
 
         <div className="container footer-bottom">
-          <span>© 2026 EDUNAVYX. All rights reserved.</span>
+          <span>© 2026 Edunavyx. All rights reserved.</span>
           <div className="footer-legal-links">
             <a href="#top">Privacy Policy</a>
             <a href="#top">Terms & Conditions</a>
