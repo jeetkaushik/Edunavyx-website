@@ -95,8 +95,8 @@ const organizationAndWebsiteSchema = {
       "telephone": "+918796556462",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "A 60, Delta 2",
-        "addressLocality": "Greater Noida",
+        "streetAddress": "TR - 648, AltF, Plot No - 21 & 21A",
+        "addressLocality": "Sector 142, Noida - 201305",
         "addressCountry": "IN",
       },
       "contactPoint": [
